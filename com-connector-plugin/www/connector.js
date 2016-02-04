@@ -1,7 +1,7 @@
 module.exports = {
   /*
   getWorkList: function(callback, error) {
-    cordova.exec(callback, error, 'CPPlugin', 'getWorkList', []);
+    cordova.exec(callback, error, 'Connector', 'getWorkList', []);
   }
   */
 

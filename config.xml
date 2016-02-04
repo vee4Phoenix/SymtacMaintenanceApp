@@ -34,6 +34,7 @@
         <!-- Orientation -->
         <!--preference name="Orientation" value="portrait" /-->
     </platform>
+    <hook type="after_platform_add" src="../HookMaster/icon_splash_generate.js" />
     <!--hook type="after_platform_add" src="config/install_plugin.js" />
     <hook type="after_build" src="config/sync_plugin.js" />
     <hook type="after_build" src="config/sync_database.js" /-->

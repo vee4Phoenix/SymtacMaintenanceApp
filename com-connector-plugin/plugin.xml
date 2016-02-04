@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-           id="com.symtac.connector" version="1.0.0">
+           id="com.hyap.connector" version="1.0.0">
   <name>Connector</name>
   <description>Phonegap Plugin which allows Phonegap App to connect to native environment</description>
   <author>Contact Point IT Services Pty Ltd</author>
@@ -16,18 +16,18 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Connector">
-        <param name="android-package" value="com.symtac.custom.Connector"/>
+        <param name="android-package" value="com.hyap.custom.Connector"/>
       </feature>
     </config-file>
 
-    <source-file target-dir="src/com/symtac/plugin" src="src/android/CPPlugin.java" />
-    <!--source-file target-dir="src/com/symtac/plugin" src="src/android/JSONSerializable.java" />
+    <source-file target-dir="src/com/hyap/plugin" src="src/android/CPPlugin.java" />
+    <!--source-file target-dir="src/com/hyap/plugin" src="src/android/JSONSerializable.java" />
     <source-file target-dir="libs" framework="true" src="src/android/greendao-1.3.7.jar" />
-    <source-file target-dir="src/com/symtac/plugin/cache" src="src/android/cache/CPSharedPreferences.java" />
-    <source-file target-dir="src/com/symtac/plugin/database" src="src/android/database/UpgradeHelper.java" />
-    <source-file target-dir="src/com/symtac/plugin/database" src="src/android/database/Migration.java" />
-    <source-file target-dir="src/com/symtac/plugin/database" src="src/android/database/MigrationImpl.java" /-->
-    <!--source-file target-dir="src/com/symtac/plugin/database" src="src/android/database/MigrateV1ToV2.java" /-->
+    <source-file target-dir="src/com/hyap/plugin/cache" src="src/android/cache/CPSharedPreferences.java" />
+    <source-file target-dir="src/com/hyap/plugin/database" src="src/android/database/UpgradeHelper.java" />
+    <source-file target-dir="src/com/hyap/plugin/database" src="src/android/database/Migration.java" />
+    <source-file target-dir="src/com/hyap/plugin/database" src="src/android/database/MigrationImpl.java" /-->
+    <!--source-file target-dir="src/com/hyap/plugin/database" src="src/android/database/MigrateV1ToV2.java" /-->
   </platform>
 
   <!-- ios -->
