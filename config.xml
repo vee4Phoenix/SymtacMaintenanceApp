@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.symtac.maintenance"
+    version="0.0.1"
+    android-versionCode="1"
+    ios-CFBundleVersion="0.0.1"
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Symtac Maintenance</name>
+    <description>
+        Symtac Maintenance App
+    </description>
+    <author email="dominicus_hubert@hotmail.com" href="">
+        Hubert Yap
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <!-- Disable splash screen on Android -->
+        <preference name="SplashScreen" value="none"/>
+        <!-- Orientation -->
+        <!--preference name="Orientation" value="portrait" /-->
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <!-- Orientation -->
+        <!--preference name="Orientation" value="portrait" /-->
+    </platform>
+    <hook type="after_platform_add" src="../HookMaster/icon_splash_generate.js" />
+    <!--hook type="after_platform_add" src="config/install_plugin.js" />
+    <hook type="after_build" src="config/sync_plugin.js" />
+    <hook type="after_build" src="config/sync_database.js" /-->
+</widget>

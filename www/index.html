@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html ng-csp>
+  <head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self' data: gap: https://ssl.gstatic.com; 
+      connect-src 'self' https://secure.contactpoint.com.au;
+      font-src    'self';
+      img-src     'self' data:;
+      media-src   'none'; 
+      object-src  'none';
+      script-src  'self';
+      style-src   'self';
+    " />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/angular-csp.css" />
+    <link type="text/css" rel="stylesheet" href="css/style-form.css" /> <!-- form css -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" media="screen" /> <!-- master css -->
+    <!--link type="text/css" rel="stylesheet" href="css/1024.css" media="screen and (min-width: 1024px)" /--> <!-- for desktop only -->
+    <link type="text/css" rel="stylesheet" href="css/image.css" media="screen and (-webkit-max-device-pixel-ratio: 1)" /><!-- image css -->
+    <link type="text/css" rel="stylesheet" href="css/image@2x.css" media="screen and (-webkit-min-device-pixel-ratio: 1.5)" /><!-- retina css -->
+
+    <!-- TODO insert other css here -->
+    <title>Hello World</title>
+  </head>
+  <body>
+    <div id="container" ng-controller="GlobalController as globalCtrl">
+
+      <!-- ===== HEADER ===== -->
+      <header>
+        <div class="wrapper">
+          <div ng-click="globalCtrl.onBack()" ng-show="globalCtrl.isBackButtonVisible()" id="btn_back">Back</div>
+        </div><!-- .wrapper -->
+      </header><!-- header -->
+
+      <!-- ===== NAVIGATION ===== -->
+      <nav>
+        <div class="wrapper">
+          <div id="menu">
+            <ul>
+              <!--li><a id="nav-logout" href="#">Logout</a></li-->
+            </ul>
+          </div>
+          <div class="clear"></div>
+        </div><!-- .wrapper -->
+      </nav><!-- nav -->
+
+      <!-- ===== BODY ===== -->
+      <div id="body">
+        <div class="wrapper">
+          <div id="content" ng-view>
+
+          </div>
+          <div class="clear"></div>
+        </div><!-- .wrapper -->
+      </div><!-- #body -->
+      <a href="#" id="hidden_link"></a>
+      
+      <div id="loading_dialog" class="loading_overlay" ng-show="globalCtrl.isLoading">
+        <div id="spinner"></div>
+      </div>
+    
+
+      <div class="clear"></div>
+
+      <!-- ===== FOOTER ===== -->
+      <footer>
+        <div class="wrapper">
+        </div><!-- .wrapper -->
+      </footer><!-- footer -->
+
+    </div><!-- end of container -->
+    
+    <script type="application/javascript" src="cordova.js"></script>
+    
+    <!-- Libraries -->
+    <script type="application/javascript" src="js/angular.min.js"></script>
+    <script type="application/javascript" src="js/angular-route.min.js"></script>
+    <script type="application/javascript" src="js/fastclick.js"></script>
+    <script type="application/javascript" src="js/index.js"></script>
+        
+    <!-- Models -->
+    <script type="application/javascript" src="model/master.js"></script>
+    <script type="application/javascript" src="model/constants.js"></script>
+    <script type="application/javascript" src="model/plugin.js"></script>
+    <script type="application/javascript" src="model/webService.js"></script>
+    <script type="application/javascript" src="model/model.js"></script>
+
+    <!-- Controllers -->
+    <script type="application/javascript" src="controller/global.js"></script>
+    <script type="application/javascript" src="controller/index.js"></script>
+    
+  </body>
+</html>
