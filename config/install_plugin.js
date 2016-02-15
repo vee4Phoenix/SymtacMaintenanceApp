@@ -3,10 +3,10 @@
 module.exports = function(context) {
   // add your plugins to this list
   var pluginlist = [
-    'com.contactpoint.custom',
-    'cordova-plugin-dialogs',
-    'cordova-plugin-network-information',
-    'cordova-plugin-inappbrowser'
+    //'com.contactpoint.custom',
+    //'cordova-plugin-network-information',
+    //'cordova-plugin-inappbrowser',
+    'cordova-plugin-dialogs'
   ];
 
   // no need to configure below

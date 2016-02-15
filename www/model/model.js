@@ -44,9 +44,10 @@
     app.factory('LoginFactory', [ 'WebServiceFactory', 'Constants', function(WebServiceFactory, Constants) 
     {
       return {
-        loginDTO : { 
-          Username : 'hyap',
-          Password : '4pps'
+        loginDTO : {
+          key      : 'Symantec4pp',
+          username : 'ios',
+          password : 'iospassword'
         },
         
         
@@ -56,7 +57,7 @@
           }
           
           // send the request
-          //WebServiceFactory.sendJSONPutRequest(Constants.WebServiceURL + '/login', this.loginDTO, successCallback, errorCallback);
+          WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/login', this.loginDTO, successCallback, errorCallback);
         },
         
         

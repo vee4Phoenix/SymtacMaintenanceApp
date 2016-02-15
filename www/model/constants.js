@@ -8,8 +8,7 @@
       'ShowLoading' : 'ShowLoading',
       'HideLoading' : 'HideLoading',
       
-      //'WebServiceURL' : 'https://secure.contactpoint.com.au/cpapp_v2/RestServer.php',
-      //'WebServiceURL' : 'https://secure.contactpoint.com.au/cpapp_v3'
+      'WebServiceURL' : 'http://cirt.harry2000.me/index.php?route=api'
     });
 
   })();
