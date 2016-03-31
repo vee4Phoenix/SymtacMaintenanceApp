@@ -11,7 +11,7 @@ input[type="password"]
     border: 1px solid #000;
     -webkit-box-sizing: border-box;
     -webkit-appearance: none;
-    -webkit-border-radius: 0;
+    border-radius: 0;
 }
 
 textarea
@@ -21,7 +21,7 @@ textarea
     border: 1px solid #000;
     -webkit-box-sizing: border-box;
     -webkit-appearance: none;
-    -webkit-border-radius: 0;
+    border-radius: 0;
 }
 
 select {
@@ -51,7 +51,7 @@ input[type="submit"] {
     border: 0;
     -webkit-appearance: none;
     -webkit-box-sizing: inherit;
-    -webkit-border-radius: 0;
+    border-radius: 0;
 }
 /*
 input[type=checkbox] { visibility: hidden; width:22px; height:22px; }

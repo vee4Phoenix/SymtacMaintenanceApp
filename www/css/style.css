@@ -23,7 +23,7 @@
 body {
     font-family: 'Century Gothic', Arial, Helvetica, sans-serif;
     font-size: 11px;
-    color: #6D6E72;
+    color: #002244;
     background: #FFF;
 }
 
@@ -31,7 +31,7 @@ a,
 a:link,
 a:visited,
 a:active {
-    color: #B2202A;
+    color: #69BE28;
     text-decoration: none;
 }
 
@@ -39,7 +39,7 @@ h1,
 h2,
 h3 {
     font-weight: bold;
-    color: #6D6E72;
+    color: #A5ACAF;
 	padding-bottom: 15px;
 }
 
@@ -87,6 +87,15 @@ fieldset {
     text-overflow: ellipsis;
 }
 
+.btn_action {
+    padding: 10px 20px;
+    color: #002244;
+    background: #69BE28;
+}
+
+.btn_action:active {
+    background: #A5ACAF;
+}
 
 /*
  * S002 - General Layout
@@ -119,7 +128,7 @@ header, #navigation, #body, footer {
 
 header {
     height: 44px;
-    background: #B2202A; 
+    background: #002244;
 }
 
 
@@ -240,7 +249,7 @@ nav .wrapper {
  */
 .loading_overlay {
     opacity: 0.5;
-    background: #000;
+    background: #002244;
     position: fixed;
     top: 0;
     left: 0;
@@ -261,7 +270,7 @@ nav .wrapper {
     right: 0;
     bottom: 50px;
 }
-#spinner { border-bottom-color: #AA0505; }
+#spinner { border-bottom-color: #69BE28; }
 
 @-webkit-keyframes sweep {
     to { -webkit-transform: rotate(360deg); }
@@ -278,3 +287,14 @@ nav .wrapper {
     padding: 10px;
 }
 
+/*
+ * Login Screen
+ */
+.content_index {
+    text-align: center;
+}
+
+.content_index input[type='text'],
+.content_index input[type='password'] {
+    margin-bottom: 10px;
+}
