@@ -32,11 +32,11 @@
       default-src 'self' data: gap: https://ssl.gstatic.com; 
       connect-src 'self' http://cirt.itchycat.com.au;
       font-src    'self';
-      img-src     'self' data:;
+      img-src     'self' data: http://cirt.itchycat.com.au;
       media-src   'none'; 
       object-src  'none';
       script-src  'self';
-      style-src   'self';
+      style-src   'self' 'unsafe-inline';
     " />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -83,7 +83,6 @@
           <div class="clear"></div>
         </div><!-- .wrapper -->
       </div><!-- #body -->
-      <a href="#" id="hidden_link"></a>
       
       <div id="loading_dialog" class="loading_overlay" ng-show="globalCtrl.isLoading">
         <div id="spinner"></div>
@@ -118,6 +117,9 @@
     <!-- Controllers -->
     <script type="application/javascript" src="controller/global.js"></script>
     <script type="application/javascript" src="controller/index.js"></script>
+    <script type="application/javascript" src="controller/list_building.js"></script>
+    <script type="application/javascript" src="controller/list_floor.js"></script>
+    <script type="application/javascript" src="controller/floor_plan.js"></script>
     
   </body>
 </html>

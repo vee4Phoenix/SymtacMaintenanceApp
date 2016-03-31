@@ -1,0 +1,10 @@
+<div class='content_list_floor'>
+  <h1 class="text-center">Floor Plans</h1>
+  <input type='text' ng-model='search.name' placeholder='Filter Floor Plan Name' />
+  <br /><br />
+  <ul>
+    <li class="list" ng-repeat='floor in controller.floorsDTO | filter:search' ng-click='controller.onFloorSelected(floor)'>
+      {{ floor.name }}
+    </li>
+  </ul>
+</div>

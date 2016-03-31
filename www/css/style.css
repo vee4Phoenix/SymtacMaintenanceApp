@@ -63,7 +63,6 @@ h6 {
 */
 
 ul, ol {
-    padding-left: 30px;
 }
 
 hr {
@@ -95,6 +94,17 @@ fieldset {
 
 .btn_action:active {
     background: #A5ACAF;
+}
+
+.list {
+    line-height: 44px;
+    list-style-type: none;
+    border-top: 1px #002244 solid;
+    padding-left: 15px;
+}
+
+.list:last-child {
+    border-bottom: 1px #002244 solid;
 }
 
 /*

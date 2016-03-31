@@ -10,8 +10,29 @@
       
         // home page
         .when('/', {
-          templateUrl : 'view/index.html',
-          controller : 'IndexCtrl',
+          templateUrl  : 'view/index.html',
+          controller   : 'IndexCtrl',
+          controllerAs : 'controller'
+        })
+        
+        // list building page
+        .when('/building', {
+          templateUrl  : 'view/list_building.html',
+          controller   : 'ListBuildingCtrl',
+          controllerAs : 'controller'
+        })
+               
+        // list floor page
+        .when('/floor', {
+          templateUrl  : 'view/list_floor.html',
+          controller   : 'ListFloorCtrl',
+          controllerAs : 'controller'
+        })
+               
+        // floor plan page
+        .when('/floorplan', {
+          templateUrl  : 'view/floor_plan.html',
+          controller   : 'FloorPlanCtrl',
           controllerAs : 'controller'
         })
                

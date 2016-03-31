@@ -1,0 +1,10 @@
+<div class='content_list_building'>
+  <h1 class="text-center">Buildings</h1>
+  <input type='text' ng-model='search.name' placeholder='Filter Building Name' />
+  <br /><br />
+  <ul>
+    <li class="list" ng-repeat='building in controller.buildingsDTO | filter:search' ng-click='controller.onBuildingSelected(building)'>
+      {{ building.name }}
+    </li>
+  </ul>
+</div>
