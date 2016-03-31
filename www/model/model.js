@@ -12,6 +12,14 @@
     app.factory('GlobalFactory', [ '$location', '$filter', 'PluginFactory', function($location, $filter, PluginFactory) 
     {
       return {
+        getAppToken: function() {
+          var token = new Object();
+          token.key = 'Symantec4pp';
+          token.username = 'ios';
+          token.password = 'iospassword';
+          return token;
+        },
+        
         handleError : function(response) {
           if      (response.logout ) { $location.path('/'); }
           else if (response.message) { PluginFactory.alert(response.message, null, 'Error'); }
@@ -41,13 +49,12 @@
     }]);
 
 
-    app.factory('LoginFactory', [ 'WebServiceFactory', 'Constants', function(WebServiceFactory, Constants) 
+    app.factory('LoginFactory', [ 'WebServiceFactory', 'GlobalFactory', 'Constants', function(WebServiceFactory, GlobalFactory, Constants)
     {
       return {
         loginDTO : {
-          key      : 'Symantec4pp',
-          username : 'ios',
-          password : 'iospassword'
+          username : 'contractor1@cirt.itchycat.com.au',
+          password : 'password'
         },
         
         
@@ -57,7 +64,10 @@
           }
           
           // send the request
-          WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/login', this.loginDTO, successCallback, errorCallback);
+          var request = GlobalFactory.getAppToken();
+          request.data = new Object();
+          request.data.contractor = this.loginDTO;
+          WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/contractor', request, successCallback, errorCallback);
         },
         
         

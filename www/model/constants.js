@@ -8,7 +8,7 @@
       'ShowLoading' : 'ShowLoading',
       'HideLoading' : 'HideLoading',
       
-      'WebServiceURL' : 'http://cirt.harry2000.me/index.php?route=api'
+      'WebServiceURL' : 'http://cirt.itchycat.com.au/api'
     });
 
   })();
