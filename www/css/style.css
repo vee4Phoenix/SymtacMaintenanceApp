@@ -100,11 +100,29 @@ fieldset {
     line-height: 44px;
     list-style-type: none;
     border-top: 1px #002244 solid;
-    padding-left: 15px;
+    padding: 0 15px;
 }
 
 .list:last-child {
     border-bottom: 1px #002244 solid;
+}
+
+.list .value {
+    float: right;
+    font-weight: bold;
+}
+
+.list .value label {
+    line-height: 44px;
+    display: inline-block;
+}
+
+.list .summary {
+
+}
+
+.list .detail {
+
 }
 
 /*
@@ -137,10 +155,18 @@ header, #navigation, #body, footer {
  */
 
 header {
+    position: fixed;
     height: 44px;
     background: #002244;
 }
 
+.title {
+    line-height: 44px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+}
 
 /*
  * S004 - Navigation
@@ -161,6 +187,7 @@ nav .wrapper {
     padding: 0 10px; 
     font-size: 16px; 
     color: #FFF;
+    position: absolute;
 }
 
 /*
@@ -186,6 +213,10 @@ nav .wrapper {
  * S005 - Body Component
  */
 #body {
+    padding: 44px 0;
+}
+
+#content {
     padding: 22px 0;
 }
 
@@ -307,4 +338,92 @@ nav .wrapper {
 .content_index input[type='text'],
 .content_index input[type='password'] {
     margin-bottom: 10px;
+}
+
+/*
+ * Floor Plan Screen
+ */
+#floor_plan {
+    position: relative;
+}
+
+.equipment {
+    position: absolute;
+    display: inline-block;
+}
+
+/* circle around equipment */
+.equipment:before {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    border-radius: 100%;
+}
+
+/*.equipment[data-status='0']:before { box-shadow: 0px 0px 0px 3px #00F; } /* Needs Checking */
+/*.equipment[data-status='1']:before { box-shadow: 0px 0px 0px 3px #0F0; } /* Clear */
+/*.equipment[data-status='2']:before { box-shadow: 0px 0px 0px 3px #F00; } /* Due */
+/*.equipment[data-status='3']:before { box-shadow: 0px 0px 0px 3px #FF0; } /* Problem */
+
+.equipment[data-type='1']  { width: 44px; height: 44px; }
+.equipment[data-type='2']  { width: 44px; height: 44px; }
+.equipment[data-type='3']  { width: 44px; height: 44px; }
+.equipment[data-type='4']  { background-position-x: 0; }
+.equipment[data-type='5']  { width: 44px; height: 44px; }
+.equipment[data-type='6']  { width: 44px; height: 33px; }
+.equipment[data-type='7']  { background-position-x: -44px; }
+.equipment[data-type='8']  { width: 44px; height: 24px; }
+.equipment[data-type='9']  { width: 44px; height: 24px; }
+.equipment[data-type='10'] { width: 44px; height: 44px; }
+.equipment[data-type='11'] { width: 44px; height: 44px; }
+.equipment[data-type='12'] { width: 44px; height: 44px; }
+.equipment[data-type='13'] { width: 44px; height: 44px; }
+.equipment[data-type='14'] { width: 44px; height: 24px; }
+.equipment[data-type='15'] { width: 44px; height: 44px; }
+.equipment[data-type='16'] { background-position-x: -88px; }
+
+.equipment[data-type='1'],
+.equipment[data-type='2'],
+.equipment[data-type='3'],
+.equipment[data-type='4'],
+.equipment[data-type='5'],
+.equipment[data-type='7'],
+.equipment[data-type='10'],
+.equipment[data-type='11'],
+.equipment[data-type='12'],
+.equipment[data-type='13'],
+.equipment[data-type='15'],
+.equipment[data-type='16']
+{
+    width: 44px;
+    height: 44px;
+    background-size: 132px 132px;
+}
+
+.equipment[data-type='6']
+{
+    width: 44px;
+    height: 33px;
+}
+
+.equipment[data-type='8'],
+.equipment[data-type='9'],
+.equipment[data-type='14']
+{
+    width: 44px;
+    height: 24px;
+}
+
+.equipment[data-status='0'] { background-position-y: 88px; } /* Due */
+.equipment[data-status='1'] { background-position-y: 0;    } /* Clear */
+.equipment[data-status='2'] { background-position-y: 44px; } /* Problem */
+/*
+ * Equipment Screen
+ */
+#txt_notes {
+    width: 100%;
+    height: 66px;
 }

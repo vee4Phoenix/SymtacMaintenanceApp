@@ -36,6 +36,13 @@
           controllerAs : 'controller'
         })
                
+        // equip page
+        .when('/equip', {
+          templateUrl  : 'view/equip.html',
+          controller   : 'EquipCtrl',
+          controllerAs : 'controller'
+        })
+               
         .otherwise({
           redirectTo: '/'
         });

@@ -10,6 +10,9 @@
     controller.floorsDTO = [];
     
     controller.onLoad = function() {
+    
+      $scope.$emit(Constants.UpdateTitle, 'Floor');
+    
       // show loading dialog
       $scope.$emit(Constants.ShowLoading);
       
@@ -24,17 +27,19 @@
         } else {
           controller.floorsDTO = response.data.floorplans;
         }
-      }
+      } // getFloorsSuccess
       
       function getFloorsError(err) {
-        console.log('Error ' + err);
-      }
-    };
+        // hide loading dialog
+        $scope.$emit(Constants.HideLoading);
+        PluginFactory.alert(JSON.stringify(err), null, 'Error');
+      } // getFloorsError
+    }; // controller.onLoad
     
     controller.onFloorSelected = function(floor) {
       CacheFactory.floorDTO = floor;
       GlobalFactory.setPath('/floorplan');
-    }
+    }; // controller.onFloorSelected
     
     controller.onLoad();
     

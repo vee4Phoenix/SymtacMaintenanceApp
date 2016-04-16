@@ -24,12 +24,16 @@
           CacheFactory.contractorDTO = response.data.contractor;
           GlobalFactory.setPath('/building');
         }
-      }
+      } // loginSuccess
       
-      function loginFailure() {
-        console.log('failed');
-      }
-    };
+      function loginFailure(err) {
+        // hide loading dialog
+        $scope.$emit(Constants.HideLoading);
+        PluginFactory.alert(JSON.stringify(err), null, 'Error');
+      } // loginFailure
+    }; // controller.onSubmit
+    
+    $scope.$emit(Constants.UpdateTitle, 'Login');
     
   }]);
 })();
