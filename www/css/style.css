@@ -158,6 +158,7 @@ header {
     position: fixed;
     height: 44px;
     background: #002244;
+    z-index: 1;
 }
 
 .title {
@@ -347,79 +348,58 @@ nav .wrapper {
     position: relative;
 }
 
+/*
+ * data-status='0' : due
+ * data-status='1' : clear
+ * data-status='2' : problem
+ * 
+ * data-group ='0' : 88x88 icon
+ * data-group ='1' : 88x65 icon
+ * data-group ='2' : 88x47 icon
+ *
+ * data-type  ='1'  : break_glass
+ * data-type  ='2'  : dry_chem_ext
+ * data-type  ='3'  : emergency_phone
+ * data-type  ='4'  : exit
+ * data-type  ='5'  : fire_hose
+ * data-type  ='6'  : first_aid
+ * data-type  ='7'  : spanner
+ * data-type  ='8'  : EWIS
+ * data-type  ='9'  : FIP
+ * data-type  ='10' : fire_blanket
+ * data-type  ='11' : switchboard
+ */
+
 .equipment {
     position: absolute;
     display: inline-block;
+    background-size: 484px 132px;
 }
 
-/* circle around equipment */
-.equipment:before {
-    content: '';
-    position: absolute;
-    bottom: -25%;
-    left: -25%;
-    width: 150%;
-    height: 150%;
-    border-radius: 100%;
-}
+.equipment[data-group='0'] { width: 44px; height: 44px; }
+.equipment[data-group='1'] { width: 44px; height: 33px; }
+.equipment[data-group='2'] { width: 44px; height: 24px; }
 
-/*.equipment[data-status='0']:before { box-shadow: 0px 0px 0px 3px #00F; } /* Needs Checking */
-/*.equipment[data-status='1']:before { box-shadow: 0px 0px 0px 3px #0F0; } /* Clear */
-/*.equipment[data-status='2']:before { box-shadow: 0px 0px 0px 3px #F00; } /* Due */
-/*.equipment[data-status='3']:before { box-shadow: 0px 0px 0px 3px #FF0; } /* Problem */
+.equipment[data-status='1']                 { background-position-y: 0;     }
+.equipment[data-status='2'][data-group='0'] { background-position-y: -44px; }
+.equipment[data-status='2'][data-group='1'] { background-position-y: -33px; }
+.equipment[data-status='2'][data-group='2'] { background-position-y: -24px; }
+.equipment[data-status='0'][data-group='0'] { background-position-y: -88px; }
+.equipment[data-status='0'][data-group='1'] { background-position-y: -66px; }
+.equipment[data-status='0'][data-group='2'] { background-position-y: -48px; }
 
-.equipment[data-type='1']  { width: 44px; height: 44px; }
-.equipment[data-type='2']  { width: 44px; height: 44px; }
-.equipment[data-type='3']  { width: 44px; height: 44px; }
-.equipment[data-type='4']  { background-position-x: 0; }
-.equipment[data-type='5']  { width: 44px; height: 44px; }
-.equipment[data-type='6']  { width: 44px; height: 33px; }
-.equipment[data-type='7']  { background-position-x: -44px; }
-.equipment[data-type='8']  { width: 44px; height: 24px; }
-.equipment[data-type='9']  { width: 44px; height: 24px; }
-.equipment[data-type='10'] { width: 44px; height: 44px; }
-.equipment[data-type='11'] { width: 44px; height: 44px; }
-.equipment[data-type='12'] { width: 44px; height: 44px; }
-.equipment[data-type='13'] { width: 44px; height: 44px; }
-.equipment[data-type='14'] { width: 44px; height: 24px; }
-.equipment[data-type='15'] { width: 44px; height: 44px; }
-.equipment[data-type='16'] { background-position-x: -88px; }
+.equipment[data-type='1']  { background-position-x: 0;      }
+.equipment[data-type='2']  { background-position-x: -44px;  }
+.equipment[data-type='3']  { background-position-x: -88px;  }
+.equipment[data-type='4']  { background-position-x: -132px; }
+.equipment[data-type='5']  { background-position-x: -176px; }
+.equipment[data-type='6']  { background-position-x: -220px; }
+.equipment[data-type='7']  { background-position-x: -264px; }
+.equipment[data-type='8']  { background-position-x: -308px; }
+.equipment[data-type='9']  { background-position-x: -352px; }
+.equipment[data-type='10'] { background-position-x: -396px; }
+.equipment[data-type='11'] { background-position-x: -440px; }
 
-.equipment[data-type='1'],
-.equipment[data-type='2'],
-.equipment[data-type='3'],
-.equipment[data-type='4'],
-.equipment[data-type='5'],
-.equipment[data-type='7'],
-.equipment[data-type='10'],
-.equipment[data-type='11'],
-.equipment[data-type='12'],
-.equipment[data-type='13'],
-.equipment[data-type='15'],
-.equipment[data-type='16']
-{
-    width: 44px;
-    height: 44px;
-    background-size: 132px 132px;
-}
-
-.equipment[data-type='6']
-{
-    width: 44px;
-    height: 33px;
-}
-
-.equipment[data-type='8'],
-.equipment[data-type='9'],
-.equipment[data-type='14']
-{
-    width: 44px;
-    height: 24px;
-}
-
-.equipment[data-status='0'] { background-position-y: 88px; } /* Due */
-.equipment[data-status='1'] { background-position-y: 0;    } /* Clear */
-.equipment[data-status='2'] { background-position-y: 44px; } /* Problem */
 /*
  * Equipment Screen
  */

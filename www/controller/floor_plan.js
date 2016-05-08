@@ -28,9 +28,7 @@
         } else {
           for (var i = 0; i < response.data.equipments.length; i++) {
             FloorPlanFactory.setEquipmentStatus(response.data.equipments[i]);
-            // TODO: delete this
-            response.data.equipments[i].type_id = 16;
-            response.data.equipments[i].status = i;
+            FloorPlanFactory.setEquipmentGroup(response.data.equipments[i]);
           }
           
           controller.equipsDTO = response.data.equipments;

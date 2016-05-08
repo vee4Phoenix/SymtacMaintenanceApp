@@ -7,47 +7,9 @@ input[type=checkbox]:before { background-image: url('../img/abc@2x.png'); }
 input[type=radio]:before    { background-image: url('../img/abc@2x.png'); }
 */
 
-.equipment[data-type='1'][data-status='0']  { background-image: url('../img/black_break_glass.png'); } /* due */
-.equipment[data-type='1'][data-status='1']  { background-image: url('../img/black_break_glass.png'); } /* clear */
-.equipment[data-type='1'][data-status='2']  { background-image: url('../img/black_break_glass.png'); } /* problem */
-.equipment[data-type='2'][data-status='0']  { background-image: url('../img/blue_break_glass.png'); }
-.equipment[data-type='2'][data-status='1']  { background-image: url('../img/blue_break_glass.png'); }
-.equipment[data-type='2'][data-status='2']  { background-image: url('../img/blue_break_glass.png'); }
-.equipment[data-type='3'][data-status='0']  { background-image: url('../img/CO2_ext.png'); }
-.equipment[data-type='3'][data-status='1']  { background-image: url('../img/CO2_ext.png'); }
-.equipment[data-type='3'][data-status='2']  { background-image: url('../img/CO2_ext.png'); }
-.equipment[data-type='4']  { background-image: url('../img/sprite@2x.png'); }
-.equipment[data-type='5'][data-status='0']  { background-image: url('../img/emergency_phone.png'); }
-.equipment[data-type='5'][data-status='1']  { background-image: url('../img/emergency_phone.png'); }
-.equipment[data-type='5'][data-status='2']  { background-image: url('../img/emergency_phone.png'); }
-.equipment[data-type='6'][data-status='0']  { background-image: url('../img/EWIS.png'); }
-.equipment[data-type='6'][data-status='1']  { background-image: url('../img/EWIS.png'); }
-.equipment[data-type='6'][data-status='2']  { background-image: url('../img/EWIS.png'); }
-.equipment[data-type='7']  { background-image: url('../img/sprite@2x.png'); }
-.equipment[data-type='8'][data-status='0']  { background-image: url('../img/FIP.png'); }
-.equipment[data-type='8'][data-status='1']  { background-image: url('../img/FIP.png'); }
-.equipment[data-type='8'][data-status='2']  { background-image: url('../img/FIP.png'); }
-.equipment[data-type='9'][data-status='0']  { background-image: url('../img/fire_blanket.png'); }
-.equipment[data-type='9'][data-status='1']  { background-image: url('../img/fire_blanket.png'); }
-.equipment[data-type='9'][data-status='2']  { background-image: url('../img/fire_blanket.png'); }
-.equipment[data-type='10'][data-status='0'] { background-image: url('../img/fire_hose.png'); }
-.equipment[data-type='10'][data-status='1'] { background-image: url('../img/fire_hose.png'); }
-.equipment[data-type='10'][data-status='2'] { background-image: url('../img/fire_hose.png'); }
-.equipment[data-type='11'][data-status='0'] { background-image: url('../img/first_aid.png'); }
-.equipment[data-type='11'][data-status='1'] { background-image: url('../img/first_aid.png'); }
-.equipment[data-type='11'][data-status='2'] { background-image: url('../img/first_aid.png'); }
-.equipment[data-type='12'][data-status='0'] { background-image: url('../img/H20_ext.png'); }
-.equipment[data-type='12'][data-status='1'] { background-image: url('../img/H20_ext.png'); }
-.equipment[data-type='12'][data-status='2'] { background-image: url('../img/H20_ext.png'); }
-.equipment[data-type='13'][data-status='0'] { background-image: url('../img/red_break_glass.png'); }
-.equipment[data-type='13'][data-status='1'] { background-image: url('../img/red_break_glass.png'); }
-.equipment[data-type='13'][data-status='2'] { background-image: url('../img/red_break_glass.png'); }
-.equipment[data-type='14'][data-status='0'] { background-image: url('../img/switchboard.png'); }
-.equipment[data-type='14'][data-status='1'] { background-image: url('../img/switchboard.png'); }
-.equipment[data-type='14'][data-status='2'] { background-image: url('../img/switchboard.png'); }
-.equipment[data-type='15'][data-status='0'] { background-image: url('../img/wet_ext.png'); }
-.equipment[data-type='15'][data-status='1'] { background-image: url('../img/wet_ext.png'); }
-.equipment[data-type='15'][data-status='2'] { background-image: url('../img/wet_ext.png'); }
-.equipment[data-type='16']  { background-image: url('../img/sprite@2x.png'); }
+.equipment { background-image: url('../img/sprite@2x.png'); }
 
+/*
+ * not necessary if we use sprites
 .retina { background-size: cover; }
+*/

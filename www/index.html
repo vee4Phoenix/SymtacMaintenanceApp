@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html ng-csp>
+<html ng-csp ng-controller="GlobalController as globalCtrl">
   <head>
     <!--
     Customize this policy to fit your own app's needs. For more guidance, see:
@@ -40,7 +40,7 @@
     " />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width" />
     <link type="text/css" rel="stylesheet" href="css/reset.css" />
     <link type="text/css" rel="stylesheet" href="css/angular-csp.css" />
     <link type="text/css" rel="stylesheet" href="css/style-form.css" /> <!-- form css -->
@@ -53,7 +53,7 @@
     <title>Hello World</title>
   </head>
   <body>
-    <div id="container" ng-controller="GlobalController as globalCtrl">
+    <div id="container">
 
       <!-- ===== HEADER ===== -->
       <header>

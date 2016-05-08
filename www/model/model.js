@@ -56,8 +56,8 @@
         // {"id":"1", "floorplan_id":"1", "name":"Equipment 1", "type_id":"1", "description":"Equipment 1", "inspection_frequency":"2", "x_axis":"100", "y_axis":"100", "last_inspection":"2016-03-17", "next_inspection":"2016-03-24", "image_width":"4960", "image_height":"3472"}
       };
     }); // app.factory('CacheFactory')
-
-
+   
+   
     app.factory('LoginFactory', [ '$q', 'WebServiceFactory', 'GlobalFactory', 'Constants', function($q, WebServiceFactory, GlobalFactory, Constants)
     {
       return {
@@ -178,9 +178,32 @@
             
           if (nextInspectionDate <= todayDate) {
             equip.status = Constants.Due;
-          } else {
-            equip.status = Constants.Normal;
           }
+        },
+        
+        setEquipmentGroup : function(equip) {
+          switch (equip.type_id) {
+              case Constants.BREAK:
+              case Constants.DRY_EXT:
+              case Constants.PHONE:
+              case Constants.EXIT:
+              case Constants.FIRE_HOSE:
+              case Constants.FIRST_AID:
+              case Constants.SPANNER:
+                equip.group = 0;
+                break;
+              case Constants.EWIS:
+                equip.group = 1;
+                break;
+              case Constants.FIP:
+              case Constants.FIRE_BLANKET:
+              case Constants.SWITCHBOARD:
+                equip.group = 2;
+                break;
+              default:
+                equip.group = 0;
+                break;                
+            }
         },
         
         updateEquipment : function() {
