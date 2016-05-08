@@ -1,0 +1,9 @@
+<div class='content_list_floor'>
+  <input type='search' ng-model='search.name' placeholder='Search' />
+  <br /><br />
+  <ul>
+    <li class='list' ng-repeat='floor in controller.floorsDTO | filter:search' ng-click='controller.onFloorSelected(floor)'>
+      {{ floor.name }}
+    </li>
+  </ul>
+</div>

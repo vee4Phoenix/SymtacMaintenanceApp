@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html ng-csp>
+<html ng-csp ng-controller="GlobalController as globalCtrl">
   <head>
     <!--
     Customize this policy to fit your own app's needs. For more guidance, see:
@@ -32,15 +32,15 @@
       default-src 'self' data: gap: https://ssl.gstatic.com; 
       connect-src 'self' http://cirt.itchycat.com.au;
       font-src    'self';
-      img-src     'self' data:;
+      img-src     'self' data: http://cirt.itchycat.com.au;
       media-src   'none'; 
       object-src  'none';
       script-src  'self';
-      style-src   'self';
+      style-src   'self' 'unsafe-inline';
     " />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width" />
     <link type="text/css" rel="stylesheet" href="css/reset.css" />
     <link type="text/css" rel="stylesheet" href="css/angular-csp.css" />
     <link type="text/css" rel="stylesheet" href="css/style-form.css" /> <!-- form css -->
@@ -53,12 +53,13 @@
     <title>Hello World</title>
   </head>
   <body>
-    <div id="container" ng-controller="GlobalController as globalCtrl">
+    <div id="container">
 
       <!-- ===== HEADER ===== -->
       <header>
         <div class="wrapper">
           <div ng-click="globalCtrl.onBack()" ng-show="globalCtrl.isBackButtonVisible()" id="btn_back">Back</div>
+          <div class='title'>{{ globalCtrl.title }}</div>
         </div><!-- .wrapper -->
       </header><!-- header -->
 
@@ -83,7 +84,6 @@
           <div class="clear"></div>
         </div><!-- .wrapper -->
       </div><!-- #body -->
-      <a href="#" id="hidden_link"></a>
       
       <div id="loading_dialog" class="loading_overlay" ng-show="globalCtrl.isLoading">
         <div id="spinner"></div>
@@ -118,6 +118,10 @@
     <!-- Controllers -->
     <script type="application/javascript" src="controller/global.js"></script>
     <script type="application/javascript" src="controller/index.js"></script>
+    <script type="application/javascript" src="controller/list_building.js"></script>
+    <script type="application/javascript" src="controller/list_floor.js"></script>
+    <script type="application/javascript" src="controller/floor_plan.js"></script>
+    <script type="application/javascript" src="controller/equip.js"></script>
     
   </body>
 </html>

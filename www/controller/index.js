@@ -3,7 +3,7 @@
 (function() {
   var app = angular.module('App');  
 
-  app.controller('IndexCtrl', [ '$scope', 'Constants', 'LoginFactory', 'PluginFactory', function($scope, Constants, LoginFactory, PluginFactory)
+  app.controller('IndexCtrl', [ '$scope', 'Constants', 'LoginFactory', 'GlobalFactory', 'PluginFactory', 'CacheFactory', function($scope, Constants, LoginFactory, GlobalFactory, PluginFactory, CacheFactory)
   {
     var controller = this;
     controller.loginDTO = LoginFactory.loginDTO;
@@ -12,7 +12,7 @@
       // show loading dialog
       $scope.$emit(Constants.ShowLoading);
 
-      LoginFactory.login(loginSuccess, loginFailure);
+      LoginFactory.login().then(loginSuccess, loginFailure);
       
       function loginSuccess(response) {
         // hide loading dialog
@@ -21,14 +21,19 @@
         if (response.error == 1) {
           PluginFactory.alert(response.message, null, 'Error');
         } else {
-          PluginFactory.alert(response.message, null, 'Success');
+          CacheFactory.contractorDTO = response.data.contractor;
+          GlobalFactory.setPath('/building');
         }
-      }
+      } // loginSuccess
       
-      function loginFailure() {
-        console.log('failed');
-      }
-    };
+      function loginFailure(err) {
+        // hide loading dialog
+        $scope.$emit(Constants.HideLoading);
+        PluginFactory.alert(JSON.stringify(err), null, 'Error');
+      } // loginFailure
+    }; // controller.onSubmit
+    
+    $scope.$emit(Constants.UpdateTitle, 'Login');
     
   }]);
 })();

@@ -6,3 +6,10 @@
 input[type=checkbox]:before { background-image: url('../img/abc@2x.png'); }
 input[type=radio]:before    { background-image: url('../img/abc@2x.png'); }
 */
+
+.equipment { background-image: url('../img/sprite@2x.png'); }
+
+/*
+ * not necessary if we use sprites
+.retina { background-size: cover; }
+*/
