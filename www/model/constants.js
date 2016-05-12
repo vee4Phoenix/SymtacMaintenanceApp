@@ -11,7 +11,7 @@
       'HideLoading'    : 'HideLoading',
       'UpdateTitle'    : 'UpdateTitle',
       
-      'WebServiceURL' : 'http://cirt.itchycat.com.au/api',
+      'WebServiceURL' : 'http://cirtsystems.ga/api',
       
       // Equipment statuses
       'Due'     : 0,
