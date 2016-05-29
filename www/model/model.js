@@ -62,7 +62,7 @@
     {
       return {
         loginDTO : {
-          username : 'contractor1@cirt.itchycat.com.au',
+          username : 'contractor1@cirtsystems.ga',
           password : 'password'
         },
         
@@ -163,6 +163,7 @@
           var request = GlobalFactory.getAppToken();
           request.data = new Object();
           request.data.floorplan = CacheFactory.floorDTO.id;
+          request.data.contractor = CacheFactory.contractorDTO.id;
           
           WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/equipments', request, onSuccess, onError);
           
