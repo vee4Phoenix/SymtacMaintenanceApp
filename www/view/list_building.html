@@ -1,8 +1,10 @@
 <div class='content_list_building'>
-  <input type='search' ng-model='search.name' placeholder='Search' />
+  <div class='form_container'>
+    <input type='search' ng-model='search.name' placeholder='Search' />
+  </div>
   <br />
   <ul>
-    <li class='list' ng-repeat='building in controller.buildingsDTO | filter:search' ng-click='controller.onBuildingSelected(building)'>
+    <li class='list_action' ng-repeat='building in controller.buildingsDTO | filter:search' ng-click='controller.onBuildingSelected(building)'>
       {{ building.name }}
     </li>
   </ul>

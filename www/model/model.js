@@ -172,15 +172,6 @@
           return q.promise;
         },
         
-        setEquipmentStatus : function(equip) {
-          var nextInspectionDate = new Date(equip.next_inspection);
-          var todayDate = new Date();
-            
-          if (nextInspectionDate <= todayDate) {
-            equip.status = Constants.Due;
-          }
-        },
-        
         setEquipmentGroup : function(equip) {
           switch (equip.type_id) {
               case Constants.BREAK:

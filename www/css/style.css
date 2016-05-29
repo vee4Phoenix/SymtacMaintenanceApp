@@ -92,7 +92,8 @@ fieldset {
     background: #69BE28;
 }
 
-.btn_action:active {
+.btn_action:active,
+.list_action:active {
     background: #A5ACAF;
 }
 
@@ -105,6 +106,18 @@ fieldset {
 
 .list:last-child {
     border-bottom: 1px #002244 solid;
+}
+
+.list_action {
+    line-height: 44px;
+    list-style-type: none;
+    border: 1px #002244 solid;
+    margin: 0 15px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    background: #69BE28;
 }
 
 .list .value {
@@ -336,8 +349,13 @@ nav .wrapper {
     text-align: center;
 }
 
-.content_index input[type='text'],
-.content_index input[type='password'] {
+.form_container {
+    padding: 0 15px;
+}
+
+.form_container input[type='text'],
+.form_container input[type='password'] {
+    width: 100%;
     margin-bottom: 10px;
 }
 

@@ -27,7 +27,6 @@
           PluginFactory.alert(response.message, null, 'Error');
         } else {
           for (var i = 0; i < response.data.equipments.length; i++) {
-            FloorPlanFactory.setEquipmentStatus(response.data.equipments[i]);
             FloorPlanFactory.setEquipmentGroup(response.data.equipments[i]);
           }
           
