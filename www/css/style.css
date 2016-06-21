@@ -120,6 +120,8 @@ fieldset {
     background: #69BE28;
 }
 
+.list_action[data-due='1'] { background: #FF0000; }
+
 .list .value {
     float: right;
     font-weight: bold;

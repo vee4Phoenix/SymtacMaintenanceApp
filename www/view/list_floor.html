@@ -4,7 +4,10 @@
   </div>
   <br />
   <ul>
-    <li class='list_action' ng-repeat='floor in controller.floorsDTO | filter:search' ng-click='controller.onFloorSelected(floor)'>
+    <li class='list_action'
+        ng-repeat='floor in controller.floorsDTO | filter:search'
+        data-due='{{ floor.due_for_inspection }}'
+        ng-click='controller.onFloorSelected(floor)'>
       {{ floor.name }}
     </li>
   </ul>
