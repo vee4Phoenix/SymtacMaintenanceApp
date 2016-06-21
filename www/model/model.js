@@ -62,8 +62,10 @@
     {
       return {
         loginDTO : {
-          username : 'contractor1@cirtsystems.ga',
-          password : 'password'
+          //username : 'contractor1@cirtsystems.ga',
+          //password : 'password'
+          username : '',
+          password : ''
         },
         
         

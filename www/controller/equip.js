@@ -3,10 +3,13 @@
 (function() {
   var app = angular.module('App');  
 
-  app.controller('EquipCtrl', [ '$scope', 'CacheFactory', 'PluginFactory', 'FloorPlanFactory', 'Constants', function($scope, CacheFactory, PluginFactory, FloorPlanFactory, Constants)
+  app.controller('EquipCtrl', [ '$scope', '$sce', 'CacheFactory', 'PluginFactory', 'FloorPlanFactory', 'Constants', function($scope, $sce, CacheFactory, PluginFactory, FloorPlanFactory, Constants)
   {
     var controller = this;
     controller.equipDTO = CacheFactory.equipDTO;
+    
+    // trust the HTML, otherwise styling will be removed
+    controller.equipDTO.notes = $sce.trustAsHtml(controller.equipDTO.notes);
     
     controller.onload = function() {
       $scope.$emit(Constants.UpdateTitle, 'Equipment');

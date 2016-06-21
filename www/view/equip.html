@@ -36,9 +36,8 @@
       <span class='clear'></span>
     </li>
     <li class='list'>
-      <span class='key'>Notes</span>
-      <span class='value'>{{ controller.equipDTO.notes }}</span>
-      <span class='clear'></span>
+      Notes<br />
+      <div ng-bind-html='controller.equipDTO.notes'></div>
     </li>
     <li class='list'>
       Additional Notes<br />

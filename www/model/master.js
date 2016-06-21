@@ -2,7 +2,7 @@
   
   (function () {
   
-    var app = angular.module('App', [ 'ngRoute' ]);
+    var app = angular.module('App', [ 'ngRoute', 'ngSanitize' ]);
   
     app.config(function($routeProvider, $provide) {
     
