@@ -23,13 +23,10 @@
         // hide loading dialog
         $scope.$emit(Constants.HideLoading);
         
-        if (response.error == 1) {
-          PluginFactory.alert(response.message, null, 'Error');
-        } else {
+        if (response.error != 1) {
           for (var i = 0; i < response.data.equipments.length; i++) {
             FloorPlanFactory.setEquipmentGroup(response.data.equipments[i]);
           }
-          
           controller.equipsDTO = response.data.equipments;
         }
       } // getEquipmentsSuccess

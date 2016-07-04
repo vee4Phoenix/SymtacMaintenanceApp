@@ -11,7 +11,7 @@
       <span class='clear'></span>
     </li>
     <li class='list'>
-      <span class='key'>Monthly Inspection Frequency</span>
+      <span class='key'>Inspection Frequency (Months)</span>
       <span class='value'>{{ controller.equipDTO.inspection_frequency }}</span>
       <span class='clear'></span>
     </li>
@@ -21,7 +21,7 @@
       <span class='clear'></span>
     </li>
     <li class='list'>
-      <span class='key'>Next Inspection Date</span>
+      <span class='key'>Due Date</span>
       <span class='value'>{{ controller.equipDTO.next_inspection | date : 'd MMM yyyy' }}</span>
       <span class='clear'></span>
     </li>
@@ -29,9 +29,9 @@
       <span class='key'>Status</span>
       <span class='value'>
         <input id='btn_normal' type='radio' ng-model='controller.equipDTO.status' value='1' />
-        <label for='btn_normal'>Working</label>
+        <label for='btn_normal'>Serviceable</label>
         <input id='btn_problem' type='radio' ng-model='controller.equipDTO.status' value='2' />
-        <label for='btn_problem'>Not Working</label>
+        <label for='btn_problem'>Unserviceable</label>
       </span>
       <span class='clear'></span>
     </li>
