@@ -6,6 +6,9 @@
     app.constant('Constants', {
       'Debug' : true,
       
+      // Storage
+      'Username' : 'Username',
+      
       // scope emit constants
       'ShowLoading'    : 'ShowLoading',
       'HideLoading'    : 'HideLoading',

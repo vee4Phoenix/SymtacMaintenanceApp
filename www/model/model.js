@@ -211,6 +211,7 @@
           var request = GlobalFactory.getAppToken();
           request.data = new Object();
           request.data.equipment = CacheFactory.equipDTO;
+          request.data.contractor_id = CacheFactory.contractorDTO.id;
           
           WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/equipment', request, onSuccess, onError);
           

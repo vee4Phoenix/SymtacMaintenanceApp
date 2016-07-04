@@ -7,6 +7,7 @@
   {
     var controller = this;
     controller.loginDTO = LoginFactory.loginDTO;
+    controller.loginDTO.username = window.localStorage.getItem(Constants.Username);
     
     controller.onSubmit = function() {
       // show loading dialog
@@ -21,6 +22,9 @@
         if (response.error == 1) {
           PluginFactory.alert(response.message, null, 'Error');
         } else {
+          window.localStorage.setItem(Constants.Username, controller.loginDTO.username);
+          controller.loginDTO.password = '';
+          
           CacheFactory.contractorDTO = response.data.contractor;
           GlobalFactory.setPath('/building');
         }

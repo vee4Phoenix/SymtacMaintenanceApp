@@ -369,9 +369,9 @@ nav .wrapper {
 }
 
 /*
- * data-status='0' : due
- * data-status='1' : clear
- * data-status='2' : problem
+ * data-icon-status='3' : due
+ * data-icon-status='1' : clear
+ * data-icon-status='2' : problem
  * 
  * data-group ='0' : 88x88 icon
  * data-group ='1' : 88x65 icon
@@ -400,13 +400,13 @@ nav .wrapper {
 .equipment[data-group='1'] { width: 44px; height: 33px; }
 .equipment[data-group='2'] { width: 44px; height: 24px; }
 
-.equipment[data-status='1']                 { background-position-y: 0;     }
-.equipment[data-status='2'][data-group='0'] { background-position-y: -44px; }
-.equipment[data-status='2'][data-group='1'] { background-position-y: -33px; }
-.equipment[data-status='2'][data-group='2'] { background-position-y: -24px; }
-.equipment[data-status='0'][data-group='0'] { background-position-y: -88px; }
-.equipment[data-status='0'][data-group='1'] { background-position-y: -66px; }
-.equipment[data-status='0'][data-group='2'] { background-position-y: -48px; }
+.equipment[data-icon-status='1']                 { background-position-y: 0;     }
+.equipment[data-icon-status='2'][data-group='0'] { background-position-y: -44px; }
+.equipment[data-icon-status='2'][data-group='1'] { background-position-y: -33px; }
+.equipment[data-icon-status='2'][data-group='2'] { background-position-y: -24px; }
+.equipment[data-icon-status='3'][data-group='0'] { background-position-y: -88px; }
+.equipment[data-icon-status='3'][data-group='1'] { background-position-y: -66px; }
+.equipment[data-icon-status='3'][data-group='2'] { background-position-y: -48px; }
 
 .equipment[data-type='1']  { background-position-x: 0;      }
 .equipment[data-type='2']  { background-position-x: -44px;  }

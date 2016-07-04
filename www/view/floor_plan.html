@@ -4,7 +4,7 @@
     "width" : "{{ controller.floorDTO.image_width }}px",
     "height" : "{{ controller.floorDTO.image_height }}px"
   }'>
-    <div class='equipment retina' ng-repeat='equip in controller.equipsDTO' ng-click='controller.onEquipmentSelected(equip)' data-type='{{ equip.type_id }}' data-status='{{ equip.status }}' data-group='{{ equip.group }}' ng-style='{
+    <div class='equipment retina' ng-repeat='equip in controller.equipsDTO' ng-click='controller.onEquipmentSelected(equip)' data-type='{{ equip.type_id }}' data-icon-status='{{ equip.icon_status }}' data-group='{{ equip.group }}' ng-style='{
       "left" : "{{ equip.x_axis }}px",
       "top" : "{{ equip.y_axis }}px"
     }'>
