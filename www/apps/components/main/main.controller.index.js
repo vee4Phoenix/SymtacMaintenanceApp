@@ -1,9 +1,14 @@
-'use strict';
 
 (function() {
-  var app = angular.module('App');  
-
-  app.controller('IndexCtrl', [ '$scope', 'Constants', 'LoginFactory', 'GlobalFactory', 'PluginFactory', 'CacheFactory', function($scope, Constants, LoginFactory, GlobalFactory, PluginFactory, CacheFactory)
+  'use strict';
+ 
+  angular
+    .module('Main')
+    .controller('IndexCtrl', MainController);
+ 
+  MainController.$inject = ['$scope', 'Constants', 'LoginFactory', 'GlobalFactory', 'PluginFactory', 'CacheFactory'];
+ 
+  function MainController($scope, Constants, LoginFactory, GlobalFactory, PluginFactory, CacheFactory)
   {
     var controller = this;
     controller.loginDTO = LoginFactory.loginDTO;
@@ -38,6 +43,6 @@
     }; // controller.onSubmit
     
     $scope.$emit(Constants.UpdateTitle, 'Login');
-    
-  }]);
+  }
+ 
 })();

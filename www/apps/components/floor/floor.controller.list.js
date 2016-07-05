@@ -1,9 +1,13 @@
-'use strict';
-
 (function() {
-  var app = angular.module('App');  
-
-  app.controller('ListFloorCtrl', [ '$scope', 'Constants', 'FloorFactory', 'GlobalFactory', 'PluginFactory', 'CacheFactory', function($scope, Constants, FloorFactory, GlobalFactory, PluginFactory, CacheFactory)
+  'use strict';
+ 
+  angular
+    .module('Floor')
+    .controller('ListFloorCtrl', FloorController);
+ 
+  FloorController.$inject = ['$scope', 'Constants', 'FloorFactory', 'GlobalFactory', 'PluginFactory', 'CacheFactory'];
+ 
+  function FloorController($scope, Constants, FloorFactory, GlobalFactory, PluginFactory, CacheFactory)
   {
     var controller = this;
     
@@ -42,6 +46,5 @@
     }; // controller.onFloorSelected
     
     controller.onLoad();
-    
-  }]);
+  }
 })();

@@ -1,9 +1,13 @@
-'use strict';
-
 (function() {
-  var app = angular.module('App');  
-
-  app.controller('FloorPlanCtrl', [ '$scope', 'FloorPlanFactory', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'Constants', function($scope, FloorPlanFactory, CacheFactory, PluginFactory, GlobalFactory, Constants)
+  'use strict';
+ 
+  angular
+    .module('FloorPlan')
+    .controller('FloorPlanCtrl', FloorPlanController);
+ 
+  FloorPlanController.$inject = ['$scope', 'FloorPlanFactory', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'Constants'];
+ 
+  function FloorPlanController($scope, FloorPlanFactory, CacheFactory, PluginFactory, GlobalFactory, Constants)
   {
     var controller = this;
     controller.floorDTO = CacheFactory.floorDTO;
@@ -44,6 +48,5 @@
     }; // controller.onEquipmentSelected
     
     controller.onLoad();
-    
-  }]);
+  }
 })();

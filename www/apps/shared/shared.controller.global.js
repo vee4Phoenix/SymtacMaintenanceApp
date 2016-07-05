@@ -1,22 +1,13 @@
-
-
-  /*
-   * A function to redefine external link click to open in device browser instead
-   * Requires inappbrowser plugin
-   */
-   /*
-  $(document).on('click.deviceBrowserLoader', 'a.external', function(e) {
-    e.preventDefault();
-    Plugin.openBrowser($(this).attr('href'));
-  });
-  */
-
-'use strict';
-
 (function() {
-  var app = angular.module('App');
-  
-  app.controller('GlobalController', [ '$scope', '$location', 'Constants', function($scope, $location, Constants) 
+  'use strict';
+ 
+  angular
+    .module('Shared')
+    .controller('GlobalController', GlobalController);
+ 
+  GlobalController.$inject = ['$scope', '$location', 'Constants'];
+ 
+  function GlobalController($scope, $location, Constants) 
   {
     var controller = this;
     
@@ -36,6 +27,6 @@
     controller.isBackButtonVisible = function() {
       return $location.path() != '/';
     }; 
-  }]);
+  }
   
 })();

@@ -1,16 +1,13 @@
-/*
-    Class: WebService
-
-    Example for instantiating a class and calling a method:
-        WebService.sendJSONGetRequest(url, callback, error);
-*/
-'use strict';
-
 (function () {
+  'use strict';
 
-  var app = angular.module('App');
-    
-  app.factory('WebServiceFactory', [ '$http', 'Constants', function($http, Constants) {
+  angular
+    .module('Shared')
+    .factory('WebServiceFactory', WebServiceFactory);
+ 
+  WebServiceFactory.$inject = ['$http', 'Constants'];
+ 
+  function WebServiceFactory($http, Constants) {
     // Use x-www-form-urlencoded Content-Type
     //$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
       
@@ -173,7 +170,8 @@
       }
       
     };
-  }]); // WebServiceFactory
+  }
+ 
 /*
   this.WebService = this.WebService || {};
   var ns = this.WebService;

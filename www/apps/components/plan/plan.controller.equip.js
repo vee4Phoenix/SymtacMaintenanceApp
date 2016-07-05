@@ -1,9 +1,13 @@
-'use strict';
-
 (function() {
-  var app = angular.module('App');  
-
-  app.controller('EquipCtrl', [ '$scope', '$sce', 'CacheFactory', 'PluginFactory', 'FloorPlanFactory', 'Constants', function($scope, $sce, CacheFactory, PluginFactory, FloorPlanFactory, Constants)
+  'use strict';
+ 
+  angular
+    .module('FloorPlan')
+    .controller('EquipCtrl', EquipController);
+ 
+  EquipController.$inject = ['$scope', '$sce', 'CacheFactory', 'PluginFactory', 'FloorPlanFactory', 'Constants'];
+ 
+  function EquipController($scope, $sce, CacheFactory, PluginFactory, FloorPlanFactory, Constants)
   {
     var controller = this;
     controller.equipDTO = CacheFactory.equipDTO;
@@ -49,5 +53,5 @@
     }; // controller.onSubmit
     
     controller.onload();
-  }]);
+  }
 })();

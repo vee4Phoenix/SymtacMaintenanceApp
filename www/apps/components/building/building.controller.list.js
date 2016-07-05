@@ -1,9 +1,13 @@
-'use strict';
-
 (function() {
-  var app = angular.module('App');  
-
-  app.controller('ListBuildingCtrl', [ '$scope', 'Constants', 'BuildingFactory', 'GlobalFactory', 'CacheFactory', 'PluginFactory', function($scope, Constants, BuildingFactory, GlobalFactory, CacheFactory, PluginFactory)
+  'use strict';
+ 
+  angular
+    .module('Building')
+    .controller('ListBuildingCtrl', BuildingController);
+ 
+  BuildingController.$inject = ['$scope', 'Constants', 'BuildingFactory', 'GlobalFactory', 'CacheFactory', 'PluginFactory'];
+ 
+  function BuildingController($scope, Constants, BuildingFactory, GlobalFactory, CacheFactory, PluginFactory)
   {
     var controller = this;
     
@@ -42,6 +46,6 @@
     }; // controller.onBuildingSelected
     
     controller.onLoad();
-    
-  }]);
+  }
+ 
 })();

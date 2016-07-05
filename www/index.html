@@ -41,13 +41,13 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width" />
-    <link type="text/css" rel="stylesheet" href="css/reset.css" />
-    <link type="text/css" rel="stylesheet" href="css/angular-csp.css" />
-    <link type="text/css" rel="stylesheet" href="css/style-form.css" /> <!-- form css -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" media="screen" /> <!-- master css -->
-    <!--link type="text/css" rel="stylesheet" href="css/1024.css" media="screen and (min-width: 1024px)" /--> <!-- for desktop only -->
-    <link type="text/css" rel="stylesheet" href="css/image.css" media="screen and (-webkit-max-device-pixel-ratio: 1)" /><!-- image css -->
-    <link type="text/css" rel="stylesheet" href="css/image@2x.css" media="screen and (-webkit-min-device-pixel-ratio: 1.5)" /><!-- retina css -->
+    <link type="text/css" rel="stylesheet" href="assets/css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/angular-csp.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/style-form.css" /> <!-- form css -->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" media="screen" /> <!-- master css -->
+    <!--link type="text/css" rel="stylesheet" href="assets/css/1024.css" media="screen and (min-width: 1024px)" /--> <!-- for desktop only -->
+    <link type="text/css" rel="stylesheet" href="assets/css/image.css" media="screen and (-webkit-max-device-pixel-ratio: 1)" /><!-- image css -->
+    <link type="text/css" rel="stylesheet" href="assets/css/image@2x.css" media="screen and (-webkit-min-device-pixel-ratio: 1.5)" /><!-- retina css -->
 
     <!-- TODO insert other css here -->
     <title>Hello World</title>
@@ -103,26 +103,45 @@
     <script type="application/javascript" src="cordova.js"></script>
     
     <!-- Libraries -->
-    <script type="application/javascript" src="js/angular.min.js"></script>
-    <script type="application/javascript" src="js/angular-route.min.js"></script>
-    <script type="application/javascript" src="js/angular-sanitize.min.js"></script>
-    <script type="application/javascript" src="js/fastclick.js"></script>
-    <script type="application/javascript" src="js/index.js"></script>
+    <script type="application/javascript" src="assets/libs/angular.min.js"></script>
+    <script type="application/javascript" src="assets/libs/angular-route.min.js"></script>
+    <script type="application/javascript" src="assets/libs/angular-sanitize.min.js"></script>
+    <script type="application/javascript" src="assets/libs/fastclick.js"></script>
+    <script type="application/javascript" src="assets/js/index.js"></script>
         
-    <!-- Models -->
-    <script type="application/javascript" src="model/master.js"></script>
-    <script type="application/javascript" src="model/constants.js"></script>
-    <script type="application/javascript" src="model/plugin.js"></script>
-    <script type="application/javascript" src="model/webService.js"></script>
-    <script type="application/javascript" src="model/model.js"></script>
-
-    <!-- Controllers -->
-    <script type="application/javascript" src="controller/global.js"></script>
-    <script type="application/javascript" src="controller/index.js"></script>
-    <script type="application/javascript" src="controller/list_building.js"></script>
-    <script type="application/javascript" src="controller/list_floor.js"></script>
-    <script type="application/javascript" src="controller/floor_plan.js"></script>
-    <script type="application/javascript" src="controller/equip.js"></script>
+    <script type="application/javascript" src="apps/app.module.js"></script>
     
+    <!-- components -->
+    <script type="application/javascript" src="apps/shared/shared.controller.global.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.constant.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.service.cache.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.service.global.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.service.web.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.service.cordova.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.service.plugin.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.directive.string.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.directive.bool.js"></script>
+    <script type="application/javascript" src="apps/shared/shared.filter.time.js"></script>
+    
+    <script type="application/javascript" src="apps/components/main/main.constant.js"></script>
+    <script type="application/javascript" src="apps/components/main/main.route.js"></script>
+    <script type="application/javascript" src="apps/components/main/main.model.index.js"></script>
+    <script type="application/javascript" src="apps/components/main/main.controller.index.js"></script>
+    
+    <script type="application/javascript" src="apps/components/building/building.constant.js"></script>
+    <script type="application/javascript" src="apps/components/building/building.route.js"></script>
+    <script type="application/javascript" src="apps/components/building/building.model.list.js"></script>
+    <script type="application/javascript" src="apps/components/building/building.controller.list.js"></script>
+    
+    <script type="application/javascript" src="apps/components/floor/floor.constant.js"></script>
+    <script type="application/javascript" src="apps/components/floor/floor.route.js"></script>
+    <script type="application/javascript" src="apps/components/floor/floor.model.list.js"></script>
+    <script type="application/javascript" src="apps/components/floor/floor.controller.list.js"></script>
+    
+    <script type="application/javascript" src="apps/components/plan/plan.constant.js"></script>
+    <script type="application/javascript" src="apps/components/plan/plan.route.js"></script>
+    <script type="application/javascript" src="apps/components/plan/plan.model.index.js"></script>
+    <script type="application/javascript" src="apps/components/plan/plan.controller.index.js"></script>
+    <script type="application/javascript" src="apps/components/plan/plan.controller.equip.js"></script>
   </body>
 </html>
