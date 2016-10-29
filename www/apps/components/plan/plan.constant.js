@@ -20,7 +20,8 @@
       EWIS         : '8',
       FIP          : '9',
       FIRE_BLANKET : '10',
-      SWITCHBOARD  : '11'
+      SWITCHBOARD  : '11',
+      BARBER_POLE  : '12'
       
     });
 

@@ -40,6 +40,7 @@
             case FloorPlanConstants.FIRE_HOSE:
             case FloorPlanConstants.FIRST_AID:
             case FloorPlanConstants.SPANNER:
+            case FloorPlanConstants.BARBER_POLE:
               equip.group = 0;
               break;
             case FloorPlanConstants.EWIS:

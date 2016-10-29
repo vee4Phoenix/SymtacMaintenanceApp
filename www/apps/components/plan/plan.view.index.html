@@ -1,4 +1,6 @@
-<div class='content_floor_plan'>
+<div class='content_floor_plan' ng-style='{
+  "height" : "{{ controller.floorDTO.image_height / 2 }}px"
+}'>
   <div id='floor_plan' ng-style='{
     "background-image" : "url( {{ controller.floorDTO.image }} )",
     "width" : "{{ controller.floorDTO.image_width }}px",
