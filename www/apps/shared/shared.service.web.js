@@ -90,7 +90,7 @@
           function(response) {
             if (Constants.Debug) {
               console.log('WebServiceFactory.sendJSONGetRequest response: ');
-              console.log(JSON.stringify(response));
+              console.log(angular.toJson(response));
             }
             callback(response.data);
           }, 
@@ -104,7 +104,7 @@
       sendJSONPostRequest : function(url, request, callback, error) {
         if (Constants.Debug) {
           console.log('Invoking WebServiceFactory.sendJSONPostRequest : ' + url);
-          console.log('Param: ', JSON.stringify(request));
+          console.log('Param: ' + angular.toJson(request));
         }
         
         error = error || this.defaultError;
@@ -114,7 +114,7 @@
           function(response) {
             if (Constants.Debug) {
               console.log('WebServiceFactory.sendJSONPostRequest response: ');
-              console.log(JSON.stringify(response));
+              console.log(angular.toJson(response));
             }
             callback(response.data);
           }, 
@@ -128,7 +128,7 @@
       sendJSONPutRequest : function(url, request, callback, error) {
         if (Constants.Debug) {
           console.log('Invoking WebServiceFactory.sendJSONPutRequest : ' + url);
-          console.log('Param: ', JSON.stringify(request));
+          console.log('Param: ' + angular.toJson(request));
         }
         
         error = error || this.defaultError;
@@ -138,7 +138,7 @@
           function(response) {
             if (Constants.Debug) {
               console.log('WebServiceFactory.sendJSONPutRequest response: ');
-              console.log(JSON.stringify(response));
+              console.log(angular.toJson(response));
             }
             callback(response.data);
           }, 
@@ -161,7 +161,7 @@
           function(response) {
             if (Constants.Debug) {
               console.log('WebServiceFactory.sendJSONDeleteRequest response: ');
-              console.log(JSON.stringify(response));
+              console.log(angular.toJson(response));
             }
             callback(response.data);
           }, 

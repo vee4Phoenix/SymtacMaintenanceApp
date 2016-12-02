@@ -1,0 +1,11 @@
+<div class='content_index'>
+  <div id='forgot_container'>
+    <div class='form_container'>
+      <h2>Please enter your new password:</h2>
+      <input type='password' ng-model='controller.forgotDTO.password' placeholder='Password' /><br />
+      <h2>Please re-enter your new password:</h2>
+      <input type='password' ng-model='controller.confirmPassword' placeholder='Password' /><br />
+    </div>
+    <div class='list_action' ng-click='controller.onUpdatePassword()'>Update Password</div>
+  </div>
+</div>

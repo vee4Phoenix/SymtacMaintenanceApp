@@ -17,6 +17,10 @@
         navigator.notification.alert(message, alertCallback, title, buttonName);
       }),
       
+      confirm : CordovaReady(function (message, alertCallback, title, buttonLabels) {
+        navigator.notification.confirm(message, alertCallback, title, buttonLabels);
+      }),
+      
       /*
        * Checks whether the device is online,
        * Requires cordova-plugin-network-information
@@ -33,16 +37,16 @@
         cordova.InAppBrowser.open(url, '_system');
       }),
       
-      setClients : CordovaReady(function(clients) {
+      showCamera : CordovaReady(function(options) {
         if (Constants.Debug) {
-          console.log('Invoking PluginFactory.setClients...');
+          console.log('Invoking PluginFactory.showCamera...');
         }
         
         var q = $q.defer();
         
-        //cp_plugin.setClients(clients, onSuccess, onError);
+        navigator.camera.getPicture(onSuccess, onError, options);
         
-        function onSuccess() { q.resolve(); }
+        function onSuccess(imageData) { q.resolve(imageData); }
         function onError(e)  { q.reject(e); }
         
         return q.promise;

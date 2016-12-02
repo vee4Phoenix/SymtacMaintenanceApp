@@ -5,9 +5,9 @@
     .module('FloorPlan')
     .controller('FloorPlanCtrl', FloorPlanController);
  
-  FloorPlanController.$inject = ['$scope', 'FloorPlanFactory', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'Constants'];
+  FloorPlanController.$inject = ['$scope', 'FloorPlanFactory', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'Constants', 'FloorPlanConstants'];
  
-  function FloorPlanController($scope, FloorPlanFactory, CacheFactory, PluginFactory, GlobalFactory, Constants)
+  function FloorPlanController($scope, FloorPlanFactory, CacheFactory, PluginFactory, GlobalFactory, Constants, FloorPlanConstants)
   {
     var controller = this;
     controller.floorDTO = CacheFactory.floorDTO;
@@ -44,7 +44,7 @@
     
     controller.onEquipmentSelected = function(equip) {
       CacheFactory.equipDTO = equip;
-      GlobalFactory.setPath('/equip');
+      GlobalFactory.setPath(FloorPlanConstants.PATH_EQUIPMENT);
     }; // controller.onEquipmentSelected
     
     controller.onLoad();

@@ -197,13 +197,18 @@ nav .wrapper {
     position: relative;
 }
 
-#btn_back {
+#btn_back,
+#btn_settings {
     line-height: 44px; 
     display: inline-block; 
     padding: 0 10px; 
     font-size: 16px; 
     color: #FFF;
     position: absolute;
+}
+
+#btn_settings {
+    right: 0;
 }
 
 /*
@@ -395,7 +400,7 @@ nav .wrapper {
 .equipment {
     position: absolute;
     display: inline-block;
-    background-size: 528px 132px;
+    background-size: 572px 132px;
 }
 
 .equipment[data-group='0'] { width: 44px; height: 44px; }
@@ -422,6 +427,7 @@ nav .wrapper {
 .equipment[data-type='10'] { background-position-x: -396px; }
 .equipment[data-type='11'] { background-position-x: -440px; }
 .equipment[data-type='12'] { background-position-x: -484px; }
+.equipment[data-type='13'] { background-position-x: -528px; }
 
 /*
  * Equipment Screen
@@ -429,4 +435,16 @@ nav .wrapper {
 #txt_notes {
     width: 100%;
     height: 66px;
+}
+
+.new_photo {
+    max-width: 100%;
+}
+
+.camera {
+    background-size: 24px 24px;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
 }

@@ -29,19 +29,38 @@
       <span class='key'>Status</span>
       <span class='value'>
         <input id='btn_normal' type='radio' ng-model='controller.equipDTO.status' value='1' />
-        <label for='btn_normal'>Serviceable</label>
+        <label for='btn_normal'>{{ controller.getLabel(true) }}</label>
         <input id='btn_problem' type='radio' ng-model='controller.equipDTO.status' value='2' />
-        <label for='btn_problem'>Unserviceable</label>
+        <label for='btn_problem'>{{ controller.getLabel(false) }}</label>
       </span>
       <span class='clear'></span>
     </li>
     <li class='list'>
       Notes<br />
-      <div ng-bind-html='controller.equipDTO.notes'></div>
+      <div class='notes_container'>
+        <div ng-repeat='note in controller.equipDTO.notes'>
+          <span ng-if='note.event_type == 2'>{{ note.admin_first_name }} {{ note.admin_last_name }}</span>
+          <span ng-if='note.event_type == 3'>{{ note.contractor_first_name }} {{ note.contractor_last_name }}</span>
+          {{ note.timestamp | date : 'd MMM yyyy' }}
+          {{ note.note }}
+          <span class='camera' ng-if='note.images.length != 0' ng-click='controller.onCameraIconClicked(note.images[0])'></span>
+          <span class='clear'></span>
+          <!--
+          <img ng-if='note.images.length == 0' data-ng-src='{{note.images[0]}}' />
+          -->
+        </div>
+      </div>
     </li>
     <li class='list'>
       Additional Notes<br />
       <textarea id='txt_notes' ng-model='controller.equipDTO.extra_notes'></textarea>
+      <img class='new_photo' ng-if='controller.equipDTO.extra_image != null' data-ng-src='{{controller.equipDTO.extra_image}}' />
+    </li>
+    <li class='list_action' ng-if='controller.equipDTO.extra_image == null' ng-click='controller.onAddPhotoSelected()'>
+      <span class='key'>Add Photo</span>
+    </li>
+    <li class='list_action' ng-if='controller.equipDTO.extra_image != null' ng-click='controller.onDeletePhotoSelected()'>
+      <span class='key'>Delete Photo</span>
     </li>
     <li class='list_action' ng-click='controller.onSubmit()'>
       <span class='key'>Submit</span>
