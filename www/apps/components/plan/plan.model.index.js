@@ -41,6 +41,7 @@
             case FloorPlanConstants.FIRST_AID:
             case FloorPlanConstants.SPANNER:
             case FloorPlanConstants.BARBER_POLE:
+            case FloorPlanConstants.CLEANING:
               equip.group = 0;
               break;
             case FloorPlanConstants.EWIS:
@@ -56,7 +57,16 @@
               break;                
           }
       },
-      
+ 
+      getLabel : function(equip, isOK) {
+        switch (equip.type_id) {
+          case FloorPlanConstants.BARBER_POLE:
+            return isOK ? 'Complete' : 'Incomplete';
+          default:
+            return isOK ? 'OK' : 'Action Required';
+        }
+      },
+ 
       updateEquipment : function() {
         if (Constants.Debug) {
           console.log('Invoking FloorPlanFactory.updateEquipment...');
@@ -68,6 +78,7 @@
         var request = GlobalFactory.getAppToken();
         request.data = new Object();
         request.data.equipment = CacheFactory.equipDTO;
+        request.data.equipment.notes = [];
         request.data.contractor_id = CacheFactory.contractorDTO.id;
         
         WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/equipment', request, onSuccess, onError);

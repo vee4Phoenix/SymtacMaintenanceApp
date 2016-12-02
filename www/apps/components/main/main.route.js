@@ -18,8 +18,14 @@
         controllerAs : 'controller'
       })
       
+      .when(MainConstants.PATH_SETTINGS, {
+        templateUrl  : 'apps/components/main/main.view.settings.html',
+        controller   : 'SettingsCtrl',
+        controllerAs : 'controller'
+      })
+ 
       .otherwise({
-        redirectTo: '/'
+        redirectTo: MainConstants.PATH_MAIN
       });
           
   }

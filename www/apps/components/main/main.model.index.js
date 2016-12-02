@@ -16,9 +16,14 @@
         username : '',
         password : ''
       },
+ 
+      forgotDTO : {
+        username : '',
+        password : ''
+      },
       
       
-      login : function(successCallback, errorCallback) {
+      login : function() {
         if (Constants.Debug) {
           console.log('Invoking LoginFactory.login...');
         }
@@ -46,6 +51,24 @@
         
         // send the request
         //WebServiceFactory.sendJSONGetRequest(Constants.WebServiceURL + '/logout', this.loginDTO, successCallback, errorCallback);
+      },
+ 
+      forgotPassword : function() {
+        if (Constants.Debug) {
+          console.log('Invoking LoginFactory.forgotPassword...');
+        }
+        
+        var q = $q.defer();
+        
+        // send the request
+        var request = GlobalFactory.getAppToken();
+        request.data = this.forgotDTO
+        WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/contractor_change_password', request, onSuccess, onError);
+        
+        function onSuccess(response) { q.resolve(response); }
+        function onError(e)  { q.reject(e); }
+        
+        return q.promise;
       }
     };
   }

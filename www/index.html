@@ -59,6 +59,7 @@
       <header>
         <div class="wrapper">
           <div ng-click="globalCtrl.onBack()" ng-show="globalCtrl.isBackButtonVisible()" id="btn_back">Back</div>
+          <div ng-click="globalCtrl.onSettings()" ng-show="globalCtrl.isSettingsButtonVisible()" id="btn_settings">Settings</div>
           <div class='title'>{{ globalCtrl.title }}</div>
         </div><!-- .wrapper -->
       </header><!-- header -->
@@ -127,6 +128,7 @@
     <script type="application/javascript" src="apps/components/main/main.route.js"></script>
     <script type="application/javascript" src="apps/components/main/main.model.index.js"></script>
     <script type="application/javascript" src="apps/components/main/main.controller.index.js"></script>
+    <script type="application/javascript" src="apps/components/main/main.controller.settings.js"></script>
     
     <script type="application/javascript" src="apps/components/building/building.constant.js"></script>
     <script type="application/javascript" src="apps/components/building/building.route.js"></script>
@@ -143,5 +145,6 @@
     <script type="application/javascript" src="apps/components/plan/plan.model.index.js"></script>
     <script type="application/javascript" src="apps/components/plan/plan.controller.index.js"></script>
     <script type="application/javascript" src="apps/components/plan/plan.controller.equip.js"></script>
+    <script type="application/javascript" src="apps/components/plan/plan.controller.photo.js"></script>
   </body>
 </html>

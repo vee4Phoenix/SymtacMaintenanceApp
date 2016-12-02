@@ -1,7 +1,18 @@
 <div class='content_index'>
-  <div class='form_container'>
-    <input type='text' ng-model='controller.loginDTO.username' /><br />
-    <input type='password' ng-model='controller.loginDTO.password' /><br />
+  <div id="login_container" ng-show="controller.forgot == 0">
+    <div class='form_container'>
+      <input type='text' ng-model='controller.loginDTO.username' placeholder="Username" /><br />
+      <input type='password' ng-model='controller.loginDTO.password' placeholder="Password" /><br />
+    </div>
+    <div class='list_action' ng-click='controller.onSubmit()'>Sign In</div>
+    <div class='list_action' ng-click='controller.forgot = 1'>Forgot Password</div>
   </div>
-  <div class='list_action' ng-click='controller.onSubmit()'>Sign In</div>
+  <div id='forgot_container' ng-show='controller.forgot == 1'>
+    <div class='form_container'>
+      <h2>Please enter your username:</h2>
+      <input type='text' ng-model='controller.forgotDTO.username' placeholder='Username' /><br />
+    </div>
+    <div class='list_action' ng-click='controller.onForgotPassword()'>Reset Password</div>
+    <div class='list_action' ng-click='controller.forgot = 0'>Cancel</div>
+  </div>
 </div>

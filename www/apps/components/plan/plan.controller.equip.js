@@ -5,15 +5,15 @@
     .module('FloorPlan')
     .controller('EquipCtrl', EquipController);
  
-  EquipController.$inject = ['$scope', '$sce', 'CacheFactory', 'PluginFactory', 'FloorPlanFactory', 'Constants'];
+  EquipController.$inject = ['$scope', '$sce', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'FloorPlanFactory', 'Constants'];
  
-  function EquipController($scope, $sce, CacheFactory, PluginFactory, FloorPlanFactory, Constants)
+  function EquipController($scope, $sce, CacheFactory, PluginFactory, GlobalFactory, FloorPlanFactory, Constants)
   {
     var controller = this;
     controller.equipDTO = CacheFactory.equipDTO;
     
     // trust the HTML, otherwise styling will be removed
-    controller.equipDTO.notes = $sce.trustAsHtml(controller.equipDTO.notes);
+    //controller.equipDTO.notes = $sce.trustAsHtml(controller.equipDTO.notes);
     
     controller.onload = function() {
       $scope.$emit(Constants.UpdateTitle, 'Equipment');
@@ -51,6 +51,48 @@
         PluginFactory.alert(JSON.stringify(err), null, 'Error');
       } // updateEquipmentError
     }; // controller.onSubmit
+ 
+    controller.getLabel = function(isOK) {
+      return FloorPlanFactory.getLabel(controller.equipDTO, isOK);
+    }; // controller.getLabel
+ 
+    controller.onAddPhotoSelected = function() {
+      PluginFactory.confirm('Select photo source', onSourceSelected, 'Add Photo', ['Camera', 'Library']);
+ 
+      function onSourceSelected(buttonIndex) {
+        var options = {
+          destinationType: Camera.DestinationType.DATA_URL,
+        };
+ 
+        switch (buttonIndex) {
+          case 1:
+            options.sourceType = Camera.PictureSourceType.CAMERA;
+            break;
+          case 2:
+            options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+            break;
+        }
+ 
+        PluginFactory.showCamera(options).then(getPhotoSuccess, getPhotoError);
+      } // onSourceSelected
+ 
+      function getPhotoError(e) {
+        PluginFactory.alert(e, null, 'Error');
+      } // getPhotoError
+ 
+      function getPhotoSuccess(imageData) {
+        controller.equipDTO.extra_image = 'data:image/png;base64,' + imageData;
+      } // getPhotoSuccess
+    }; // controller.onAddPhotoSelected
+ 
+    controller.onDeletePhotoSelected = function() {
+      controller.equipDTO.extra_image = null;
+    };
+ 
+    controller.onCameraIconClicked = function(photo) {
+      CacheFactory.photoDTO = photo;
+      GlobalFactory.setPath(FloorPlanConstants.PATH_EQUIPMENT);
+    };
     
     controller.onload();
   }

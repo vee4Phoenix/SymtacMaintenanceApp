@@ -8,6 +8,7 @@
       // Floor Plan constants
       PATH_FLOOR_PLAN : '/floorplan',
       PATH_EQUIPMENT : '/equip',
+      PATH_PHOTO : '/photo',
             
       // Equipment type
       BREAK        : '1',
@@ -21,7 +22,8 @@
       FIP          : '9',
       FIRE_BLANKET : '10',
       SWITCHBOARD  : '11',
-      BARBER_POLE  : '12'
+      BARBER_POLE  : '12',
+      CLEANING     : '13'
       
     });
 

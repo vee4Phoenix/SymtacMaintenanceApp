@@ -1,10 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.maintenance.symtac"
-    version="0.1.4"
-    android-versionCode="12"
-    ios-CFBundleVersion="0.1.4"
-    xmlns="http://www.w3.org/ns/widgets"
-    xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="12" id="com.maintenance.symtac" ios-CFBundleVersion="0.2.0" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CIRT Systems</name>
     <description>
         CIRT Systems App
@@ -23,19 +18,16 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <!-- Disable splash screen on Android -->
-        <preference name="SplashScreen" value="none"/>
-        <!-- Orientation -->
-        <!--preference name="Orientation" value="portrait" /-->
+        <preference name="SplashScreen" value="none" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <!-- Orientation -->
-        <!--preference name="Orientation" value="portrait" /-->
     </platform>
-    <hook type="after_platform_add" src="../HookMaster/icon_splash_generate.js" />
-    <!--hook type="after_build" src="config/install_plugin.js" /-->
-    <!--hook type="after_build" src="config/sync_plugin.js" /-->
-    <!--hook type="after_build" src="config/sync_database.js" /-->
+    <hook src="../HookMaster/icon_splash_generate.js" type="after_platform_add" />
+    <plugin name="cordova-plugin-camera" spec="~2.3.0">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-dialogs" spec="~1.2.0" />
 </widget>

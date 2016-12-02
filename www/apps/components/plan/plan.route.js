@@ -24,6 +24,13 @@
         controller   : 'EquipCtrl',
         controllerAs : 'controller'
       })
+ 
+      // photo page
+      .when(FloorPlanConstants.PATH_PHOTO, {
+        templateUrl  : 'apps/components/plan/plan.view.photo.html',
+        controller   : 'PhotoCtrl',
+        controllerAs : 'controller'
+      })
   }
 
 })();
