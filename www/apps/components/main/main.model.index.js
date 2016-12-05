@@ -63,7 +63,7 @@
         // send the request
         var request = GlobalFactory.getAppToken();
         request.data = this.forgotDTO
-        WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/contractor_change_password', request, onSuccess, onError);
+        WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/password', request, onSuccess, onError);
         
         function onSuccess(response) { q.resolve(response); }
         function onError(e)  { q.reject(e); }

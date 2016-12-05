@@ -38,7 +38,7 @@
     <li class='list'>
       Notes<br />
       <div class='notes_container'>
-        <div ng-repeat='note in controller.equipDTO.notes'>
+        <div class='note_container' ng-repeat='note in controller.equipDTO.notes' data-type='{{ note.event_type }}'>
           <span ng-if='note.event_type == 2'>{{ note.admin_first_name }} {{ note.admin_last_name }}</span>
           <span ng-if='note.event_type == 3'>{{ note.contractor_first_name }} {{ note.contractor_last_name }}</span>
           {{ note.timestamp | date : 'd MMM yyyy' }}
