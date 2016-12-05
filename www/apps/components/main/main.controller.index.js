@@ -59,6 +59,7 @@
         $scope.$emit(Constants.HideLoading);
         controller.forgotDTO.username = '';
         controller.forgotDTO.password = '';
+        PluginFactory.alert('New password has been sent to your email address. Please login with the new password.', null, 'Success');
       }
  
       function forgotPasswordFailure(err) {

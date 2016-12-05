@@ -448,3 +448,7 @@ nav .wrapper {
     width: 24px;
     vertical-align: middle;
 }
+
+.note_container[data-type='1'] { color: #F80606; }
+.note_container[data-type='2'] { color: #0088CC; }
+.note_container[data-type='3'] { color: #F89406; }
