@@ -11,5 +11,11 @@
   {
     var controller = this;
     controller.photoDTO = CacheFactory.photoDTO;
+ 
+    controller.onload = function() {
+      $scope.$emit(Constants.UpdateTitle, 'Photo');
+    }; // controller.onload
+ 
+    controller.onload();
   }
 })();
