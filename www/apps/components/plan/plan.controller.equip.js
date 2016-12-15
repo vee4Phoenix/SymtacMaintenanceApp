@@ -5,9 +5,9 @@
     .module('FloorPlan')
     .controller('EquipCtrl', EquipController);
  
-  EquipController.$inject = ['$scope', '$sce', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'FloorPlanFactory', 'Constants'];
+  EquipController.$inject = ['$scope', '$sce', 'CacheFactory', 'PluginFactory', 'GlobalFactory', 'FloorPlanFactory', 'Constants', 'FloorPlanConstants'];
  
-  function EquipController($scope, $sce, CacheFactory, PluginFactory, GlobalFactory, FloorPlanFactory, Constants)
+  function EquipController($scope, $sce, CacheFactory, PluginFactory, GlobalFactory, FloorPlanFactory, Constants, FloorPlanConstants)
   {
     var controller = this;
     controller.equipDTO = CacheFactory.equipDTO;
@@ -91,7 +91,7 @@
  
     controller.onCameraIconClicked = function(photo) {
       CacheFactory.photoDTO = photo;
-      GlobalFactory.setPath(FloorPlanConstants.PATH_EQUIPMENT);
+      GlobalFactory.setPath(FloorPlanConstants.PATH_PHOTO);
     };
     
     controller.onload();
