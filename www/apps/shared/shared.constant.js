@@ -15,7 +15,8 @@
     'HideLoading'    : 'HideLoading',
     'UpdateTitle'    : 'UpdateTitle',
     
-    'WebServiceURL' : 'http://cirtsystems.ga/api'
+    'WebServiceURL' : 'https://www.cirtsystems.com.au/api',
+    'ImageURL' : 'https://www.cirtsystems.com.au'
     
   });
 

@@ -30,8 +30,15 @@
  
       function updatePasswordSuccess(response) {
         $scope.$emit(Constants.HideLoading);
-        controller.forgotDTO.username = '';
-        controller.forgotDTO.password = '';
+ 
+        if (response.error == 1) {
+          PluginFactory.alert(response.message, null, 'Error');
+        } else {
+          controller.forgotDTO.username = '';
+          controller.forgotDTO.password = '';
+          controller.confirmPassword = '';
+          PluginFactory.alert(response.message, null, 'Success');
+        }
       }
  
       function updatePasswordFailure(err) {
