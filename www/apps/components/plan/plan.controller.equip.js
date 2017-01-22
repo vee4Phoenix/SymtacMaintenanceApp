@@ -62,6 +62,7 @@
       function onSourceSelected(buttonIndex) {
         var options = {
           destinationType: Camera.DestinationType.DATA_URL,
+          correctOrientation: true
         };
  
         switch (buttonIndex) {

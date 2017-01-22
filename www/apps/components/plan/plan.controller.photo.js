@@ -10,7 +10,7 @@
   function PhotoController($scope, CacheFactory, GlobalFactory, Constants)
   {
     var controller = this;
-    controller.photoDTO = CacheFactory.photoDTO;
+    controller.photoDTO = Constants.ImageURL + CacheFactory.photoDTO + '?key=' + GlobalFactory.getAppToken().key;
  
     controller.onload = function() {
       $scope.$emit(Constants.UpdateTitle, 'Photo');
