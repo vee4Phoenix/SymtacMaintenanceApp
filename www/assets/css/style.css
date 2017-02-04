@@ -394,13 +394,16 @@ nav .wrapper {
  * data-type  ='9'  : FIP
  * data-type  ='10' : fire_blanket
  * data-type  ='11' : switchboard
- * data-type  ='11' : barber_pole
+ * data-type  ='12' : clear_area
+ * data-type  ='13' : recurring_job
+ * data-type  ='14' : cleaning
+ * data-type  ='15' : fire_door
  */
 
 .equipment {
     position: absolute;
     display: inline-block;
-    background-size: 572px 132px;
+    background-size: 616px 132px;
 }
 
 .equipment[data-group='0'] { width: 44px; height: 44px; }
