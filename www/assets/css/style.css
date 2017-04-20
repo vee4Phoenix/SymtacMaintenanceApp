@@ -398,12 +398,23 @@ nav .wrapper {
  * data-type  ='13' : recurring_job
  * data-type  ='14' : cleaning
  * data-type  ='15' : fire_door
+ * data-type  ='16' : drainage
+ * data-type  ='17' : planting
+ * data-type  ='18' : mowing
+ * data-type  ='19' : chemicals
+ * data-type  ='20' : pruning
+ * data-type  ='21' : watering
+ * data-type  ='22' : gaming_machine
+ * data-type  ='23' : medical_equipment
+ * data-type  ='24' : general_inspection
+ * data-type  ='25' : document
+ * data-type  ='26' : air_conditioner
  */
 
 .equipment {
     position: absolute;
     display: inline-block;
-    background-size: 616px 132px;
+    background-size: 1144px 132px; /* Update the width if more images are added to the sprite */
 }
 
 .equipment[data-group='0'] { width: 44px; height: 44px; }
@@ -430,9 +441,20 @@ nav .wrapper {
 .equipment[data-type='10'] { background-position-x: -396px; }
 .equipment[data-type='11'] { background-position-x: -440px; }
 .equipment[data-type='12'] { background-position-x: -484px; }
-.equipment[data-type='13'] { background-position-x: -264px; }
+.equipment[data-type='13'] { background-position-x: -880px; }
 .equipment[data-type='14'] { background-position-x: -528px; }
 .equipment[data-type='15'] { background-position-x: -572px; }
+.equipment[data-type='16'] { background-position-x: -616px; }
+.equipment[data-type='17'] { background-position-x: -660px; }
+.equipment[data-type='18'] { background-position-x: -704px; }
+.equipment[data-type='19'] { background-position-x: -748px; }
+.equipment[data-type='20'] { background-position-x: -792px; }
+.equipment[data-type='21'] { background-position-x: -836px; }
+.equipment[data-type='22'] { background-position-x: -924px; }
+.equipment[data-type='23'] { background-position-x: -968px; }
+.equipment[data-type='24'] { background-position-x: -1012px; }
+.equipment[data-type='25'] { background-position-x: -1056px; }
+.equipment[data-type='26'] { background-position-x: -1100px; }
 
 /*
  * Equipment Screen
