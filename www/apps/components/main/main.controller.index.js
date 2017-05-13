@@ -35,7 +35,22 @@
           controller.loginDTO.password = '';
           
           CacheFactory.contractorDTO = response.data.contractor;
+ 
+          PluginFactory.registerPushNotification().then(pushNotificationSuccess, pushNotificationError);
           GlobalFactory.setPath('/building');
+ 
+          function pushNotificationSuccess(result) {
+            LoginFactory.sendNotificationToken(result, CacheFactory.contractorDTO.id, PluginFactory.getDevicePlatform())
+            .then(onRegisterNotificationTokenSuccess, pushNotificationError);
+          }
+          
+          function onRegisterNotificationTokenSuccess(result) {
+            console.log('Successfully registered notification token.');
+          }
+        
+          function pushNotificationError(error) {
+            PluginFactory.alert(error, null, 'Notification Error');
+          }
         }
       } // loginSuccess
       

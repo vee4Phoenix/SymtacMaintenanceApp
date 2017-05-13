@@ -69,6 +69,32 @@
         function onError(e)  { q.reject(e); }
         
         return q.promise;
+      },
+ 
+      sendNotificationToken : function(token, contractor_id, platform) {
+        if (Constants.Debug) {
+          console.log('Invoking LoginFactory.sendNotificationToken...');
+        }
+        
+        var q = $q.defer();
+        
+        var request = GlobalFactory.getAppToken();
+        request.data = new Object();
+        request.data.contractor_id = contractor_id;
+
+        if (platform == 'iOS') {
+          request.data.ios_token = token;
+        }
+        else if (platform == 'Android') {
+          request.data.android_token = token;
+        }
+ 
+        WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/pushtoken', request, onSuccess, onError);
+        
+        function onSuccess(response) { q.resolve(response); }
+        function onError(e)  { q.reject(e); }
+        
+        return q.promise;
       }
     };
   }
