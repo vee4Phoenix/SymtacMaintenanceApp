@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="22" id="com.maintenance.symtac" ios-CFBundleVersion="1.3.0" version="1.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="24" id="com.maintenance.symtac" ios-CFBundleVersion="1.3.2" version="1.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CIRT Systems</name>
     <description>
         CIRT Systems App
@@ -23,7 +23,7 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <hook src="../HookMaster/icon_splash_generate.js" type="after_platform_add" />
+    <!--hook src="../HookMaster/icon_splash_generate.js" type="after_build" /-->
     <engine name="android" spec="~6.2.1" />
     <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/phonegap-build/PushPlugin.git" />
     <plugin name="cordova-plugin-camera" spec="~2.3.0">

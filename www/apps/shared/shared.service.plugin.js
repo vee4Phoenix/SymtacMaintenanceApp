@@ -5,9 +5,9 @@
     .module('Shared')
     .factory('PluginFactory', PluginFactory);
  
-  PluginFactory.$inject = ['$q', 'Constants', 'CordovaReady'];
+  PluginFactory.$inject = ['$q', 'Constants', 'CordovaReady', 'LoginFactory', 'CacheFactory'];
  
-  function PluginFactory($q, Constants, CordovaReady) {
+  function PluginFactory($q, Constants, CordovaReady, LoginFactory, CacheFactory) {
     return {
       /*
        * Replacing browser alert,
@@ -72,7 +72,7 @@
         var pushNotification = window.plugins.pushNotification;
         
         if (device.platform == 'Android') {
-          pushNotification.register(tokenHandler, errorHandler, {
+          pushNotification.register(successHandler, errorHandler, {
             "senderID":"597226893358",
             "ecb":"PluginFactory.onNotification"
           });
@@ -86,6 +86,7 @@
           });
         }
         
+        function successHandler (result) { q.resolve(); }
         function tokenHandler (result) { q.resolve(result); }
         function errorHandler (error) { q.reject(error); }
         
@@ -99,23 +100,33 @@
  
       onNotification : CordovaReady(function(e) {
         // https://github.com/appfeel/cordova-push-notifications/blob/master/Example/www/index.html
-        /*
+        
         switch (e.event) {
           case 'registered':
             if (e.regid.length > 0) {
-              console.log('Registration ID: ' + e.regid);
+              //console.log('Registration ID: ' + e.regid);
+              LoginFactory.sendNotificationToken(e.regid, CacheFactory.contractorDTO.id, device.platform)
+              .then(onRegisterNotificationTokenSuccess, pushNotificationError);
+              
+              function onRegisterNotificationTokenSuccess(result) {
+                console.log('Successfully registered notification token.');
+              }
+            
+              function pushNotificationError(error) {
+                navigator.notification.alert(error, null, 'Notification Error');
+              }
             }
             break;
           case 'message':
-            PluginFactory.alert(e.payload.message, null, 'Notification');
+            //PluginFactory.alert(e.payload.message, null, 'Notification');
             break;
           case 'error':
-            PluginFactory.alert(e.msg, null, 'Notification Error');
+            //PluginFactory.alert(e.msg, null, 'Notification Error');
             break;
           default:
             console.log('Received unknown notification event');
             break;
-        }*/
+        }
       }),
  
  

@@ -40,8 +40,10 @@
           GlobalFactory.setPath('/building');
  
           function pushNotificationSuccess(result) {
-            LoginFactory.sendNotificationToken(result, CacheFactory.contractorDTO.id, PluginFactory.getDevicePlatform())
-            .then(onRegisterNotificationTokenSuccess, pushNotificationError);
+            if(result != null) {
+              LoginFactory.sendNotificationToken(result, CacheFactory.contractorDTO.id, PluginFactory.getDevicePlatform())
+              .then(onRegisterNotificationTokenSuccess, pushNotificationError);
+            }
           }
           
           function onRegisterNotificationTokenSuccess(result) {
