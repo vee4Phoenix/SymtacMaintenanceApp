@@ -7,7 +7,7 @@
  
   GlobalFactory.$inject = ['$location', '$filter', 'PluginFactory'];
  
-  function GlobalFactory($location, $filter, PluginFactory) 
+  function GlobalFactory($location, $filter, PluginFactory)
   {
     return {
       getAppToken: function() {
@@ -26,7 +26,9 @@
       setPath : function(path) { $location.path(path); },
       
       getCurrentDate : function() { return $filter('date')(new Date(), 'yyyy-MM-dd HH:mm:ss'); },
-      
+ 
+ 
+ 
       /**
        * Media Queries functions
        */

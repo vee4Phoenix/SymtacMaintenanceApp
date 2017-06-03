@@ -35,13 +35,14 @@
           controller.loginDTO.password = '';
           
           CacheFactory.contractorDTO = response.data.contractor;
+          plugin_contractor_id = response.data.contractor.id;
  
           PluginFactory.registerPushNotification().then(pushNotificationSuccess, pushNotificationError);
           GlobalFactory.setPath('/building');
  
           function pushNotificationSuccess(result) {
             if(result != null) {
-              LoginFactory.sendNotificationToken(result, CacheFactory.contractorDTO.id, PluginFactory.getDevicePlatform())
+              PluginFactory.sendNotificationToken(result, CacheFactory.contractorDTO.id, PluginFactory.getDevicePlatform())
               .then(onRegisterNotificationTokenSuccess, pushNotificationError);
             }
           }

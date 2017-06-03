@@ -5,9 +5,9 @@
     .module('Shared')
     .factory('PluginFactory', PluginFactory);
  
-  PluginFactory.$inject = ['$q', 'Constants', 'CordovaReady', 'LoginFactory', 'CacheFactory'];
+  PluginFactory.$inject = ['$q', 'Constants', 'CordovaReady', 'WebServiceFactory'];
  
-  function PluginFactory($q, Constants, CordovaReady, LoginFactory, CacheFactory) {
+  function PluginFactory($q, Constants, CordovaReady, WebServiceFactory) {
     return {
       /*
        * Replacing browser alert,
@@ -68,13 +68,14 @@
         }
         
         var q = $q.defer();
+        var factory = this;
         
         var pushNotification = window.plugins.pushNotification;
         
         if (device.platform == 'Android') {
           pushNotification.register(successHandler, errorHandler, {
             "senderID":"597226893358",
-            "ecb":"PluginFactory.onNotification"
+            "ecb":"onNotification"
           });
         }
         else if (device.platform == 'iOS') {
@@ -82,7 +83,7 @@
             "badge":"true",
             "sound":"true",
             "alert":"true",
-            "ecb":"PluginFactory.onNotificationAPN"
+            "ecb":"onNotificationAPN"
           });
         }
         
@@ -94,61 +95,96 @@
       }),
  
  
-      //sendNotificationToken : CordovaReady(function(request) {
-      //}),
- 
- 
-      onNotification : CordovaReady(function(e) {
-        // https://github.com/appfeel/cordova-push-notifications/blob/master/Example/www/index.html
-        
-        switch (e.event) {
-          case 'registered':
-            if (e.regid.length > 0) {
-              //console.log('Registration ID: ' + e.regid);
-              LoginFactory.sendNotificationToken(e.regid, CacheFactory.contractorDTO.id, device.platform)
-              .then(onRegisterNotificationTokenSuccess, pushNotificationError);
-              
-              function onRegisterNotificationTokenSuccess(result) {
-                console.log('Successfully registered notification token.');
-              }
-            
-              function pushNotificationError(error) {
-                navigator.notification.alert(error, null, 'Notification Error');
-              }
-            }
-            break;
-          case 'message':
-            //PluginFactory.alert(e.payload.message, null, 'Notification');
-            break;
-          case 'error':
-            //PluginFactory.alert(e.msg, null, 'Notification Error');
-            break;
-          default:
-            console.log('Received unknown notification event');
-            break;
-        }
-      }),
- 
- 
-      onNotificationAPN : CordovaReady(function(e) {
-        /*
-        if (e.alert) {
-          PluginFactory.alert(e.alert, null, 'Notification');
+      /**
+       * Notification
+       */
+      sendNotificationToken : function(token, contractor_id, platform) {
+        if (Constants.Debug) {
+          console.log('Invoking PluginFactory.sendNotificationToken...');
         }
         
-        if (e.sound) {
-        }
+        var q = $q.defer();
         
-        if (e.badge) {
-          window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
-          
-          function successHandler (result) {
-            console.log(result);
-          }
+        var request = new Object();
+        request.key = 'Symantec4pp';
+        request.username = 'ios';
+        request.password = 'iospassword';
+        request.data = new Object();
+        request.data.contractor_id = contractor_id;
+
+        if (platform == 'iOS') {
+          request.data.ios_token = token;
         }
-        */
-      })
+        else if (platform == 'Android') {
+          request.data.android_token = token;
+        }
+ 
+        WebServiceFactory.sendJSONPostRequest(Constants.WebServiceURL + '/pushtoken', request, onSuccess, onError);
+        
+        function onSuccess(response) { q.resolve(response); }
+        function onError(e)  { q.reject(e); }
+        
+        return q.promise;
+      }
+ 
+ 
+ 
     };
   }
 
 })();
+
+var plugin_contractor_id = -1;
+
+function onNotification(e) {
+  // https://github.com/appfeel/cordova-push-notifications/blob/master/Example/www/index.html
+  
+  switch (e.event) {
+    case 'registered':
+      if (e.regid.length > 0) {
+        //console.log('Registration ID: ' + e.regid);
+        var PluginFactory = angular.injector(['ng', 'Shared']).get('PluginFactory');
+        
+        PluginFactory.sendNotificationToken(e.regid, plugin_contractor_id, PluginFactory.getDevicePlatform())
+        .then(onRegisterNotificationTokenSuccess, pushNotificationError);
+        
+        function onRegisterNotificationTokenSuccess(result) {
+          console.log('Successfully registered notification token.');
+        }
+      
+        function pushNotificationError(error) {
+          PluginFactory.alert(error, null, 'Notification Error');
+        }
+      }
+      break;
+    case 'message':
+      //PluginFactory.alert(e.payload.message, null, 'Notification');
+      break;
+    case 'error':
+      //PluginFactory.alert(e.msg, null, 'Notification Error');
+      break;
+    default:
+      console.log('Received unknown notification event');
+      break;
+  }
+}
+
+
+function onNotificationAPN(e) {
+  /*
+  if (e.alert) {
+    PluginFactory.alert(e.alert, null, 'Notification');
+  }
+  
+  if (e.sound) {
+  }
+  
+  if (e.badge) {
+    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
+    
+    function successHandler (result) {
+      console.log(result);
+    }
+  }
+  */
+}

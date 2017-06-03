@@ -8,19 +8,20 @@
         ],
         "plugins": {
             "com.phonegap.plugins.PushPlugin": {},
-            "cordova-plugin-camera": {
-                "CAMERA_USAGE_DESCRIPTION": "CIRT Systems requires your permission to access your camera.",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": "CIRT Systems requires your permission to access your photo library."
-            },
             "cordova-plugin-device": {},
             "cordova-plugin-dialogs": {},
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-camera": {
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            }
         }
     },
     "dependencies": {
-        "cordova-android": "~6.2.1",
         "com.phonegap.plugins.PushPlugin": "https://github.com/phonegap-build/PushPlugin.git",
-        "cordova-plugin-camera": "~2.3.0",
+        "cordova-android": "~6.2.1",
+        "cordova-plugin-camera": "^2.4.1",
+        "cordova-plugin-compat": "^1.1.0",
         "cordova-plugin-device": "~1.1.5",
         "cordova-plugin-dialogs": "~1.2.0",
         "cordova-plugin-whitelist": "1"
