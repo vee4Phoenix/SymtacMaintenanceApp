@@ -94,7 +94,11 @@
       CacheFactory.photoDTO = photo;
       GlobalFactory.setPath(FloorPlanConstants.PATH_PHOTO);
     };
-    
+ 
+    controller.getAbsoluteLink = function(link) {
+      return Constants.ImageURL + link;
+    };
+ 
     controller.onload();
   }
 })();

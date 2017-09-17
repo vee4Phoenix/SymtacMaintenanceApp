@@ -8,4 +8,4 @@ input[type=radio]:before    { background-image: url('../img/abc.png'); }
 */
 
 .equipment { background-image: url('../img/sprite.png'); }
-.camera { background-image: url('../img/cam_icon.png'); }
+.icon { background-image: url('../img/icon.png'); }
