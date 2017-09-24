@@ -95,8 +95,8 @@
       GlobalFactory.setPath(FloorPlanConstants.PATH_PHOTO);
     };
  
-    controller.getAbsoluteLink = function(link) {
-      return Constants.ImageURL + link;
+    controller.getPDFLink = function(link) {
+      return Constants.ImageURL + link + '?key=' + GlobalFactory.getAppToken().key
     };
  
     controller.onload();

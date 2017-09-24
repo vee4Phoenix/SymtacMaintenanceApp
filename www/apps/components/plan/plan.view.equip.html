@@ -43,9 +43,9 @@
           <span ng-if='note.event_type == 3'>{{ note.contractor_first_name }} {{ note.contractor_last_name }}</span>
           {{ note.timestamp | date : 'd MMM yyyy' }}
           {{ note.note }}
-          <span class='icon camera' ng-if='note.images.length > 0 && note.images[1]["image_base64"] != ""' ng-click='controller.onCameraIconClicked(note.images[1]["image_base64"])'></span>
-          <a class='icon link' ng-if='note.images.length > 0 && note.images[1]["url_link"] != ""' href='{{controller.getAbsoluteLink(note.images[1]["url_link"])}}'></a>
-          <a class='icon pdf' ng-if='note.images.length > 0 && note.images[1]["pdf_base64"] != ""' href='{{controller.getAbsoluteLink(note.images[1]["pdf_base64"])}}'></a>
+          <span class='icon camera' ng-if='note.images.length > 0' ng-click='controller.onCameraIconClicked(note.images[0])'></span>
+          <a class='icon link' ng-if='note.urls.length > 0' href='{{note.urls[0]}}'></a>
+          <a class='icon pdf' ng-if='note.pdfs.length > 0' href='{{controller.getPDFLink(note.pdfs[0])}}'></a>
           <span class='clear'></span>
         </div>
       </div>
