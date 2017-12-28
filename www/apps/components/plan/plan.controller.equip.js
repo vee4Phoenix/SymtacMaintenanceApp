@@ -11,6 +11,7 @@
   {
     var controller = this;
     controller.equipDTO = CacheFactory.equipDTO;
+    controller.buildingDTO = CacheFactory.buildingDTO;
     
     // trust the HTML, otherwise styling will be removed
     //controller.equipDTO.notes = $sce.trustAsHtml(controller.equipDTO.notes);

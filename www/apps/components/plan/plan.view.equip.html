@@ -25,6 +25,13 @@
       <span class='value'>{{ controller.equipDTO.next_inspection | date : 'd MMM yyyy' }}</span>
       <span class='clear'></span>
     </li>
+    <li class='list' ng-show='controller.buildingDTO.pdf_link != ""'>
+      <a class='link_pdf' href='{{controller.getPDFLink(controller.buildingDTO.pdf_link)}}'>
+        <span class='key'>Floor Plan</span>
+        <span class='value icon pdf'></span>
+        <span class='clear'></span>
+      </a>
+    </li>
     <li class='list'>
       <span class='key'>Status</span>
       <span class='value'>
