@@ -1,6 +1,6 @@
 /*
  * Copyright 2014
- * Developed By Contact Point IT Services
+ * Developed By Hubert Yap
  *
  * Table of Contents
  *
@@ -538,3 +538,7 @@ nav .wrapper {
 .note_container[data-type='1'] { color: #F80606; }
 .note_container[data-type='2'] { color: #0088CC; }
 .note_container[data-type='3'] { color: #F89406; }
+
+a.link_pdf { color: #024; display: block; }
+
+.link_pdf .pdf { margin-top: 10px; }
