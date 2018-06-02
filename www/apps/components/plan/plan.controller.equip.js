@@ -96,8 +96,20 @@
       GlobalFactory.setPath(FloorPlanConstants.PATH_PHOTO);
     };
  
-    controller.getPDFLink = function(link) {
-      return Constants.ImageURL + link + '?key=' + GlobalFactory.getAppToken().key
+    controller.getBuildingPDFLink = function(link) {
+      return Constants.ImageURL + '/image/home/building_pdf/' + controller.buildingDTO.id + '/' + link + '?key=' + GlobalFactory.getAppToken().key;
+    };
+ 
+    controller.getStructuralPDFLink = function(link) {
+      return Constants.ImageURL + '/image/home/building_structural_pdf/' + controller.buildingDTO.id + '/' + link + '?key=' + GlobalFactory.getAppToken().key;
+    };
+ 
+    controller.getEngineeringPDFLink = function(link) {
+      return Constants.ImageURL + '/image/home/building_engineering_pdf/' + controller.buildingDTO.id + '/' + link + '?key=' + GlobalFactory.getAppToken().key;
+    };
+ 
+    controller.isNullOrEmpty = function(param) {
+      return param == null || param == '';
     };
  
     controller.onload();
