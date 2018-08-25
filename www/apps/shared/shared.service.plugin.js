@@ -68,29 +68,59 @@
         }
         
         var q = $q.defer();
-        var factory = this;
         
-        var pushNotification = window.plugins.pushNotification;
+        var push = PushNotification.init({
+          android: {
+
+          },
+          ios: {
+            alert: true,
+            badge: true,
+            sound: false
+          }
+        });
+
+        push.on('registration', onRegistration);
+        push.on('notification', onNotification);
+        push.on('error',        onError);
         
-        if (device.platform == 'Android') {
-          pushNotification.register(successHandler, errorHandler, {
-            "senderID":"597226893358",
-            "ecb":"onNotification"
-          });
+        function onRegistration(res) {
+          q.resolve(res.registrationId);
         }
-        else if (device.platform == 'iOS') {
-          pushNotification.register(tokenHandler, errorHandler, {
-            "badge":"true",
-            "sound":"true",
-            "alert":"true",
-            "ecb":"onNotificationAPN"
-          });
+        
+        function onNotification(notification) {
+          console.log('PluginFactory onNotification: ');
+          console.log(notification);
         }
         
-        function successHandler (result) { q.resolve(); }
-        function tokenHandler (result) { q.resolve(result); }
-        function errorHandler (error) { q.reject(error); }
-        
+        function onError(err) {
+          q.reject(err);
+        }
+
+//        var q = $q.defer();
+//        var factory = this;
+//
+//        var pushNotification = window.plugins.pushNotification;
+//
+//        if (device.platform == 'Android') {
+//          pushNotification.register(successHandler, errorHandler, {
+//            "senderID":"597226893358",
+//            "ecb":"onNotification"
+//          });
+//        }
+//        else if (device.platform == 'iOS') {
+//          pushNotification.register(tokenHandler, errorHandler, {
+//            "badge":"true",
+//            "sound":"true",
+//            "alert":"true",
+//            "ecb":"onNotificationAPN"
+//          });
+//        }
+//
+//        function successHandler (result) { q.resolve(); }
+//        function tokenHandler (result) { q.resolve(result); }
+//        function errorHandler (error) { q.reject(error); }
+
         return q.promise;
       }),
  
@@ -134,43 +164,43 @@
 
 })();
 
-var plugin_contractor_id = -1;
+//var plugin_contractor_id = -1;
+//
+//function onNotification(e) {
+//  // https://github.com/appfeel/cordova-push-notifications/blob/master/Example/www/index.html
+//
+//  switch (e.event) {
+//    case 'registered':
+//      if (e.regid.length > 0) {
+//        //console.log('Registration ID: ' + e.regid);
+//        var PluginFactory = angular.injector(['ng', 'Shared']).get('PluginFactory');
+//
+//        PluginFactory.sendNotificationToken(e.regid, plugin_contractor_id, PluginFactory.getDevicePlatform())
+//        .then(onRegisterNotificationTokenSuccess, pushNotificationError);
+//
+//        function onRegisterNotificationTokenSuccess(result) {
+//          console.log('Successfully registered notification token.');
+//        }
+//
+//        function pushNotificationError(error) {
+//          PluginFactory.alert(error, null, 'Notification Error');
+//        }
+//      }
+//      break;
+//    case 'message':
+//      //PluginFactory.alert(e.payload.message, null, 'Notification');
+//      break;
+//    case 'error':
+//      //PluginFactory.alert(e.msg, null, 'Notification Error');
+//      break;
+//    default:
+//      console.log('Received unknown notification event');
+//      break;
+//  }
+//}
 
-function onNotification(e) {
-  // https://github.com/appfeel/cordova-push-notifications/blob/master/Example/www/index.html
-  
-  switch (e.event) {
-    case 'registered':
-      if (e.regid.length > 0) {
-        //console.log('Registration ID: ' + e.regid);
-        var PluginFactory = angular.injector(['ng', 'Shared']).get('PluginFactory');
-        
-        PluginFactory.sendNotificationToken(e.regid, plugin_contractor_id, PluginFactory.getDevicePlatform())
-        .then(onRegisterNotificationTokenSuccess, pushNotificationError);
-        
-        function onRegisterNotificationTokenSuccess(result) {
-          console.log('Successfully registered notification token.');
-        }
-      
-        function pushNotificationError(error) {
-          PluginFactory.alert(error, null, 'Notification Error');
-        }
-      }
-      break;
-    case 'message':
-      //PluginFactory.alert(e.payload.message, null, 'Notification');
-      break;
-    case 'error':
-      //PluginFactory.alert(e.msg, null, 'Notification Error');
-      break;
-    default:
-      console.log('Received unknown notification event');
-      break;
-  }
-}
 
-
-function onNotificationAPN(e) {
+//function onNotificationAPN(e) {
   /*
   if (e.alert) {
     PluginFactory.alert(e.alert, null, 'Notification');
@@ -187,4 +217,4 @@ function onNotificationAPN(e) {
     }
   }
   */
-}
+//}

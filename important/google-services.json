@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "597226893358-p3mvi1674gt7bheg0dqv5d9f8h9r38mo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maintenance.symtac",
+            "certificate_hash": "99fb462e8c044247136bee4b60c7518e98294efc"
+          }
+        },
+        {
           "client_id": "597226893358-uqf5g1gdg3r9hpqm0hckp7orkgbe2uiq.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597226893358-uqf5g1gdg3r9hpqm0hckp7orkgbe2uiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

@@ -35,7 +35,7 @@
           controller.loginDTO.password = '';
           
           CacheFactory.contractorDTO = response.data.contractor;
-          plugin_contractor_id = response.data.contractor.id;
+//          var plugin_contractor_id = response.data.contractor.id;
  
           PluginFactory.registerPushNotification().then(pushNotificationSuccess, pushNotificationError);
           GlobalFactory.setPath('/building');
